@@ -6,21 +6,11 @@
 @import 'icon';
 @import 'cursor';
 
-.container {
-  display: flex;
-  flex-direction: row;
-
-  .head-and-content {
-    display: flex;
-    flex-direction: column;
-  }
-}
-
 * {
-  font-family: Misa font !important;
+  font-family: Source Sans Pro, sans-serif;
   margin: 0px;
   padding: 0px;
-  font-size: 14px;
+  font-size: 13px;
   box-sizing: border-box;
 }
 

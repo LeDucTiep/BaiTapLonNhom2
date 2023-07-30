@@ -100,7 +100,7 @@ label:has(input[type="radio"]) {
       transform: translateY(-50%);
       left: 4px;
       content: '';
-      background: #007aff;
+      background: #28A745;
     }
 
     &:before {
@@ -114,7 +114,7 @@ label:has(input[type="radio"]) {
       left: 0;
       content: '';
       background: #fff;
-      border: 1px solid black;
+      border: 1px solid #DADADA;
     }
   }
 }

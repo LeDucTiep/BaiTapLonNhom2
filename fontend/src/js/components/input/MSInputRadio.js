@@ -21,6 +21,10 @@ const mixin = {
       type: Boolean,
       default: false,
     },
+    direction: {
+      type: String,
+      default: "row",
+    },
   },
   emits: ["update:id"],
   beforeUnmount() {

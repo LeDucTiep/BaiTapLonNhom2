@@ -1,88 +1,284 @@
 <template>
-  <div class="container" :style="{ width: windowWidth }">
-    <TheNav v-model:isShowLessNav="isShowLessNav"></TheNav>
-    <div
-      class="head-and-content"
-      :style="{ width: headAndContentWidth + 'px' }"
-    >
-      <TheHeader></TheHeader>
-      <TheContent></TheContent>
+  <div class="container">
+    <div class="header">
+      <img
+        width="182"
+        height="30"
+        src="../public/63126f50dbf45.png"
+        alt="logo"
+      />
+      <MSInputSearch
+        placeholder="Nhập tên trong giấy tờ, tên đồ vật, tên vật nuôi ..."
+      ></MSInputSearch>
+
+      <div class="icon-list">
+        <!-- Icon đăng bài -->
+        <div class="icon-container">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="1.5em"
+            viewBox="0 0 448 512"
+          >
+            <path
+              d="M64 80c-8.8 0-16 7.2-16 16V416c0 8.8 7.2 16 16 16H384c8.8 0 16-7.2 16-16V96c0-8.8-7.2-16-16-16H64zM0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"
+            />
+          </svg>
+        </div>
+
+        <!-- Icon thông báo -->
+        <div class="icon-container">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="1.5em"
+            viewBox="0 0 448 512"
+          >
+            <path
+              d="M224 0c-17.7 0-32 14.3-32 32V49.9C119.5 61.4 64 124.2 64 200v33.4c0 45.4-15.5 89.5-43.8 124.9L5.3 377c-5.8 7.2-6.9 17.1-2.9 25.4S14.8 416 24 416H424c9.2 0 17.6-5.3 21.6-13.6s2.9-18.2-2.9-25.4l-14.9-18.6C399.5 322.9 384 278.8 384 233.4V200c0-75.8-55.5-138.6-128-150.1V32c0-17.7-14.3-32-32-32zm0 96h8c57.4 0 104 46.6 104 104v33.4c0 47.9 13.9 94.6 39.7 134.6H72.3C98.1 328 112 281.3 112 233.4V200c0-57.4 46.6-104 104-104h8zm64 352H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7s18.7-28.3 18.7-45.3z"
+            />
+          </svg>
+        </div>
+
+        <!-- Icon user -->
+        <div class="icon-container">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="1.5em"
+            viewBox="0 0 448 512"
+          >
+            <path
+              d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"
+            />
+          </svg>
+        </div>
+      </div>
     </div>
-    <MSTooltip></MSTooltip>
-    <MSReminderNotice></MSReminderNotice>
+    <div class="body">
+      <div class="nav">
+        <div class="nav__head">
+          <div class="nav__row">
+            <div class="nav__title">Bộ lọc</div>
+            <div class="delete-filter flex" @click="resetFilter()">
+              <div class="icon-container">
+                <div class="icon-x-red"></div>
+              </div>
+              Xóa bộ lọc
+            </div>
+          </div>
+          <hr />
+          <div class="nav__row">
+            <MSInputRadio
+              title="Loại tin"
+              direction="column"
+              :items="[
+                { id: 0, value: 'Tin cần tìm' },
+                { id: 1, value: 'Tin nhặt được' },
+              ]"
+              v-model:id="filter.NewsType"
+            ></MSInputRadio>
+          </div>
+          <div class="nav__row">
+            <MSInputRadio
+              title="Danh mục"
+              direction="column"
+              :items="[
+                { id: 0, value: 'Ví/Giấy tờ' },
+                { id: 1, value: 'Thú cưng(Chó/Mèo)' },
+                { id: 2, value: 'Tìm người' },
+                { id: 3, value: 'Điện thoại/Tablet/Laptop' },
+                { id: 4, value: 'Chìa khóa' },
+                { id: 5, value: 'Xe máy/Ô tô' },
+                { id: 6, value: 'Đồ vật khác' },
+              ]"
+              v-model:id="filter.Category"
+            ></MSInputRadio>
+          </div>
+          <div class="nav__row">
+            <MSInputCombobox
+              title="Chọn khu vục"
+              propText="Name"
+              propValue="Id"
+              v-model:id="filter.ProvinceId"
+              :listItems="provinces"
+            >
+            </MSInputCombobox>
+          </div>
+          <div class="nav__row">
+            <button class="main-button" @click="searchOnClick()">
+              Tìm kiếm
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <router-view :key="postListKey"></router-view>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import TheNav from "./layouts/TheNav.vue";
-import TheContent from "./layouts/TheContent.vue";
-import TheHeader from "./layouts/TheHeader.vue";
-
 export default {
   name: "App",
-  components: {
-    TheNav,
-    TheContent,
-    TheHeader,
-  },
+  components: {},
   data() {
     return {
-      // Dùng để thay đổi trạng thái của nav
-      isShowLessNav: false,
-      // Dùng để gán độ rộng màn hình cho CSS
-      windowWidth: window.innerWidth + "px",
-      // Khoảng trống bên phải của nav
-      headAndContentWidth: 0,
+      postListKey: 0,
+      provinces: [
+        { Id: 0, Name: "Toàn quốc" },
+        { Id: 1, Name: "Bac Giang" },
+        { Id: 2, Name: "Bac Ninh" },
+      ],
+      filter: {
+        Category: null,
+        NewsType: null,
+        ProvinceId: 0,
+      },
     };
   },
-  watch: {
-    /**
-     * Tính toán lại kích trước của content khi kích thước nav thay đổi
-     * Author: LeDucTiep (04/05/2023)
-     */
-    isShowLessNav() {
-      this.reCalculateContentWidth();
-    },
-  },
+  watch: {},
+
+  created() {},
+
+  mounted() {},
+
+  beforeUnmount() {},
 
   methods: {
-    /**
-     * Tính toán lại kích thước content khi thay đổi kích thước màn hình
-     * Author: LeDucTiep (04/05/2023)
-     */
-    onResize() {
-      this.windowWidth = window.innerWidth + "px";
-      this.reCalculateContentWidth();
+    async searchOnClick() {
+      await this.$router.replace(
+        "/" + encodeURIComponent(JSON.stringify(this.filter))
+      );
+      this.reloadListPost();
     },
-
-    /**
-     * Tính toán lại kích thước của content
-     * Author: LeDucTiep (04/05/2023)
-     */
-    reCalculateContentWidth() {
-      this.headAndContentWidth =
-        this.isShowLessNav || window.innerWidth < 870
-          ? window.innerWidth - 56
-          : window.innerWidth - 200;
+    resetFilter() {
+      this.filter = {
+        Category: null,
+        NewsType: null,
+        ProvinceId: 0,
+      };
     },
-  },
-
-  created() {
-    // Responsive
-    this.reCalculateContentWidth();
-  },
-
-  mounted() {
-    this.$nextTick(() => {
-      window.addEventListener("resize", this.onResize);
-    });
-  },
-
-  beforeUnmount() {
-    window.removeEventListener("resize", this.onResize);
+    reloadListPost() {
+      this.postListKey += 1;
+    },
   },
 };
 </script>
+
+<style lang="scss">
+@import "~@fortawesome/fontawesome-free/css/all.css";
+.container {
+  .header {
+    width: 100vw;
+    height: 50px;
+    background-color: white;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    flex-direction: rows;
+    align-items: center;
+    justify-content: space-around;
+    .input-search {
+      width: 600px;
+      position: relative;
+      top: 4px;
+    }
+
+    .icon-list {
+      display: flex;
+
+      .icon-container {
+        width: 40px;
+        height: 40px;
+        margin: 0px 12px;
+        border-radius: var(--border-radius);
+        background-color: #fff;
+        transition: background-color 0.5s ease;
+
+        &:hover {
+          background-color: #d9d9d9;
+        }
+      }
+    }
+  }
+
+  .body {
+    display: flex;
+    background-color: #f4f6f9;
+    .nav {
+      padding: 24px;
+      width: 300px;
+      height: calc(100vh - 50px);
+
+      .nav__head {
+        user-select: none;
+        .nav__title {
+          font-weight: bold;
+        }
+        .nav__row {
+          display: flex;
+          label {
+            font-weight: bold;
+            height: 40px;
+          }
+
+          label:has(input[type="radio"]) {
+            font-weight: 400;
+          }
+
+          &:nth-child(1) {
+            align-items: center;
+            padding: 4px 0px;
+            justify-content: space-between;
+            .delete-filter {
+              align-items: center;
+              cursor: pointer;
+              color: #ff0000;
+            }
+          }
+
+          &:nth-child(3) {
+            margin-top: 10px;
+          }
+          &:nth-child(4) {
+            margin-top: 10px;
+          }
+          &:nth-child(5) {
+            margin-top: 10px;
+          }
+
+          &:nth-child(6) {
+            justify-content: center;
+          }
+
+          .mcombobox {
+            margin-top: 8px;
+          }
+        }
+      }
+    }
+    .content {
+      height: calc(100vh - 50px);
+      width: calc(100vw - 300px);
+      overflow: auto;
+
+      &::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: #ccc;
+      }
+
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: #a7a7a7;
+      }
+    }
+  }
+}
+</style>
 
 <style src="./style/base/main.scss" lang="scss">
 </style>
