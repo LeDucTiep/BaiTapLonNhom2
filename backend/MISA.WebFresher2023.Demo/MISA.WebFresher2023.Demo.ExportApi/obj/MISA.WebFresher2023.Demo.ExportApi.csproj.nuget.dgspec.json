@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.ExportApi\\MISA.WebFresher2023.Demo.ExportApi.csproj": {}
+    "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.ExportApi\\MISA.WebFresher2023.Demo.ExportApi.csproj": {}
   },
   "projects": {
-    "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.BL\\MISA.WebFresher2023.Demo.BL.csproj": {
+    "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.BL\\MISA.WebFresher2023.Demo.BL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.BL\\MISA.WebFresher2023.Demo.BL.csproj",
+        "projectUniqueName": "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.BL\\MISA.WebFresher2023.Demo.BL.csproj",
         "projectName": "MISA.WebFresher2023.Demo.BL",
-        "projectPath": "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.BL\\MISA.WebFresher2023.Demo.BL.csproj",
+        "projectPath": "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.BL\\MISA.WebFresher2023.Demo.BL.csproj",
         "packagesPath": "C:\\Users\\tiepl\\.nuget\\packages\\",
-        "outputPath": "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.BL\\obj\\",
+        "outputPath": "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.BL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tiepl\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,11 +28,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.Common\\MISA.WebFresher2023.Demo.Common.csproj": {
-                "projectPath": "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.Common\\MISA.WebFresher2023.Demo.Common.csproj"
+              "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.Common\\MISA.WebFresher2023.Demo.Common.csproj": {
+                "projectPath": "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.Common\\MISA.WebFresher2023.Demo.Common.csproj"
               },
-              "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.DL\\MISA.WebFresher2023.Demo.DL.csproj": {
-                "projectPath": "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.DL\\MISA.WebFresher2023.Demo.DL.csproj"
+              "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.DL\\MISA.WebFresher2023.Demo.DL.csproj": {
+                "projectPath": "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.DL\\MISA.WebFresher2023.Demo.DL.csproj"
               }
             }
           }
@@ -84,14 +84,14 @@
         }
       }
     },
-    "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.Common\\MISA.WebFresher2023.Demo.Common.csproj": {
+    "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.Common\\MISA.WebFresher2023.Demo.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.Common\\MISA.WebFresher2023.Demo.Common.csproj",
+        "projectUniqueName": "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.Common\\MISA.WebFresher2023.Demo.Common.csproj",
         "projectName": "MISA.WebFresher2023.Demo.Common",
-        "projectPath": "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.Common\\MISA.WebFresher2023.Demo.Common.csproj",
+        "projectPath": "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.Common\\MISA.WebFresher2023.Demo.Common.csproj",
         "packagesPath": "C:\\Users\\tiepl\\.nuget\\packages\\",
-        "outputPath": "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.Common\\obj\\",
+        "outputPath": "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tiepl\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -157,14 +157,14 @@
         }
       }
     },
-    "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.DL\\MISA.WebFresher2023.Demo.DL.csproj": {
+    "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.DL\\MISA.WebFresher2023.Demo.DL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.DL\\MISA.WebFresher2023.Demo.DL.csproj",
+        "projectUniqueName": "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.DL\\MISA.WebFresher2023.Demo.DL.csproj",
         "projectName": "MISA.WebFresher2023.Demo.DL",
-        "projectPath": "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.DL\\MISA.WebFresher2023.Demo.DL.csproj",
+        "projectPath": "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.DL\\MISA.WebFresher2023.Demo.DL.csproj",
         "packagesPath": "C:\\Users\\tiepl\\.nuget\\packages\\",
-        "outputPath": "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.DL\\obj\\",
+        "outputPath": "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.DL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tiepl\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -181,8 +181,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.Common\\MISA.WebFresher2023.Demo.Common.csproj": {
-                "projectPath": "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.Common\\MISA.WebFresher2023.Demo.Common.csproj"
+              "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.Common\\MISA.WebFresher2023.Demo.Common.csproj": {
+                "projectPath": "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.Common\\MISA.WebFresher2023.Demo.Common.csproj"
               }
             }
           }
@@ -230,14 +230,14 @@
         }
       }
     },
-    "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.ExportApi\\MISA.WebFresher2023.Demo.ExportApi.csproj": {
+    "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.ExportApi\\MISA.WebFresher2023.Demo.ExportApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.ExportApi\\MISA.WebFresher2023.Demo.ExportApi.csproj",
+        "projectUniqueName": "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.ExportApi\\MISA.WebFresher2023.Demo.ExportApi.csproj",
         "projectName": "MISA.WebFresher2023.Demo.ExportApi",
-        "projectPath": "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.ExportApi\\MISA.WebFresher2023.Demo.ExportApi.csproj",
+        "projectPath": "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.ExportApi\\MISA.WebFresher2023.Demo.ExportApi.csproj",
         "packagesPath": "C:\\Users\\tiepl\\.nuget\\packages\\",
-        "outputPath": "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.ExportApi\\obj\\",
+        "outputPath": "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.ExportApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tiepl\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -254,14 +254,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.BL\\MISA.WebFresher2023.Demo.BL.csproj": {
-                "projectPath": "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.BL\\MISA.WebFresher2023.Demo.BL.csproj"
+              "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.BL\\MISA.WebFresher2023.Demo.BL.csproj": {
+                "projectPath": "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.BL\\MISA.WebFresher2023.Demo.BL.csproj"
               },
-              "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.Common\\MISA.WebFresher2023.Demo.Common.csproj": {
-                "projectPath": "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.Common\\MISA.WebFresher2023.Demo.Common.csproj"
+              "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.Common\\MISA.WebFresher2023.Demo.Common.csproj": {
+                "projectPath": "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.Common\\MISA.WebFresher2023.Demo.Common.csproj"
               },
-              "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.DL\\MISA.WebFresher2023.Demo.DL.csproj": {
-                "projectPath": "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.DL\\MISA.WebFresher2023.Demo.DL.csproj"
+              "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.DL\\MISA.WebFresher2023.Demo.DL.csproj": {
+                "projectPath": "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.DL\\MISA.WebFresher2023.Demo.DL.csproj"
               }
             }
           }

@@ -13,7 +13,7 @@
 
       <div class="icon-list">
         <!-- Icon đăng bài -->
-        <div class="icon-container">
+        <div class="icon-container" @click="addPostOnClick()">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="1.5em"
@@ -39,7 +39,7 @@
         </div>
 
         <!-- Icon user -->
-        <div class="icon-container">
+        <div class="icon-container" @click="signInOnClick()">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="1.5em"
@@ -117,6 +117,8 @@
 </template>
 
 <script>
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+
 export default {
   name: "App",
   components: {},
@@ -133,17 +135,34 @@ export default {
         NewsType: null,
         ProvinceId: 0,
       },
+      isLoggedIn: false,
+      auth: null,
     };
   },
   watch: {},
 
   created() {},
 
-  mounted() {},
+  mounted() {
+    this.auth = getAuth();
+    onAuthStateChanged(this.auth, (user) => {
+      if (user) {
+        this.isLoggedIn = true;
+      } else {
+        this.isLoggedIn = false;
+      }
+    });
+    console.log("Đã đăng nhập: ", this.isLoggedIn);
+  },
 
   beforeUnmount() {},
 
   methods: {
+    signOutOnClick() {
+      signOut(this.auth).then(() => {
+        this.$router.push("/");
+      });
+    },
     async searchOnClick() {
       await this.$router.replace(
         "/" + encodeURIComponent(JSON.stringify(this.filter))
@@ -159,6 +178,12 @@ export default {
     },
     reloadListPost() {
       this.postListKey += 1;
+    },
+    addPostOnClick() {
+      this.$router.push("/TPostAdd");
+    },
+    signInOnClick() {
+      this.$router.push("/TSignIn");
     },
   },
 };

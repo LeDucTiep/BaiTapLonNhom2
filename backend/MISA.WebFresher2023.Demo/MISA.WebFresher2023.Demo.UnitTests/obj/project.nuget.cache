@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dd9Mb2WXtlbkbo2vwKE+d0eqOTQqv3XodsPiTnhBUKFyXwm/+0QqwskXTfLLu4WRIgEny8FDGoKOXjPrNh7AUA==",
+  "dgSpecHash": "0Rpd28+gMGz+siC+lkS51LpIYGaTbHQ4x9LW1MoCG++ilxQg0SgULBTNzf6Rx9RVUrw2HpXv8/dx7N/MTluYSw==",
   "success": true,
-  "projectFilePath": "D:\\Misa\\ThucTap\\GD2\\backend\\MISA.WebFresher2023.Demo - Copy\\MISA.WebFresher2023.Demo.UnitTests\\MISA.WebFresher2023.Demo.UnitTests.csproj",
+  "projectFilePath": "D:\\Tai_lieu_mon_hoc_HAUI\\nam_3\\ky_he\\PhanMemMaNguonMo\\btl\\BaiTapNhom2\\backend\\MISA.WebFresher2023.Demo\\MISA.WebFresher2023.Demo.UnitTests\\MISA.WebFresher2023.Demo.UnitTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tiepl\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\tiepl\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
