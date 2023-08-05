@@ -26,14 +26,15 @@ const handleSignOut = () => {
   });
 };
 
-onMounted(() => {
+onMounted(async () => {
   auth = getAuth();
-  onAuthStateChanged(auth, (user) => {
+  await onAuthStateChanged(auth, (user) => {
     if (user) {
       isLoggedIn.value = true;
     } else {
       isLoggedIn.value = false;
     }
+    console.log("Đã đăng nhập", isLoggedIn.value);
   });
 });
 </script>

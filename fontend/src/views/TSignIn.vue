@@ -29,14 +29,19 @@ export default {
     async register() {
       const auth = getAuth();
 
+      console.log("User", auth.currentUser);
+
       try {
         const resData = await signInWithEmailAndPassword(
           auth,
           this.account.email,
           this.account.pass
         );
-        console.log("Success dang nhap", resData);
-        console.log(auth.currentUser);
+        if (resData?.user?.accessToken) {
+          this.$msCookies.set("accessToken", resData.user.accessToken);
+          const actoken = this.$msCookies.get("accessToken");
+          console.log("Success dang nhap", actoken);
+        }
         this.$router.push("/");
       } catch (e) {
         console.log("Error", e);
@@ -44,9 +49,20 @@ export default {
     },
     signInWithGoogle() {
       const provider = new GoogleAuthProvider();
-      signInWithPopup(getAuth(), provider)
+      const auth = getAuth();
+
+      console.log("User", auth.currentUser);
+
+      signInWithPopup(auth, provider)
         .then((result) => {
-          console.log(result);
+          console.log("Success dang nhap", result);
+
+          if (result?.user?.accessToken) {
+            this.$msCookies.set("accessToken", result.user.accessToken);
+            const actoken = this.$msCookies.get("accessToken");
+            console.log("Success dang nhap", actoken);
+          }
+
           this.$router.push("/");
         })
         .catch((error) => {

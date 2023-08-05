@@ -2,6 +2,7 @@
   <div class="container">
     <div class="header">
       <img
+        @click="homeOnClick()"
         width="182"
         height="30"
         src="../public/63126f50dbf45.png"
@@ -39,21 +40,69 @@
         </div>
 
         <!-- Icon user -->
-        <div class="icon-container" @click="signInOnClick()">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="1.5em"
-            viewBox="0 0 448 512"
-          >
-            <path
-              d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"
-            />
-          </svg>
+        <div v-click-outside="userPopupClickOutSide" class="relative">
+          <div class="icon-container" @click="iconUserOnClick()">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="1.5em"
+              viewBox="0 0 448 512"
+            >
+              <path
+                d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"
+              />
+            </svg>
+          </div>
+          <div v-show="isShowUserPopup" class="function-container">
+            <div v-if="isLoggedIn() == true" class="logged-in-functions">
+              <div class="func-item" @click="showProfileOnClick()">
+                <div class="icon-container">
+                  <div class="icon-refresh-green"></div>
+                </div>
+                <div class="func-name">Trang cá nhân</div>
+              </div>
+
+              <div class="func-item">
+                <div class="icon-container">
+                  <div class="icon-refresh-green"></div>
+                </div>
+                <div class="func-name">Cập nhật thông tin</div>
+              </div>
+
+              <div class="func-item">
+                <div class="icon-container">
+                  <div class="icon-refresh-green"></div>
+                </div>
+                <div class="func-name">Đổi mật khẩu</div>
+              </div>
+              <hr />
+              <div class="func-item" @click="signOutOnClick()">
+                <div class="icon-container">
+                  <div class="icon-refresh-green"></div>
+                </div>
+                <div class="func-name">Đăng xuất</div>
+              </div>
+            </div>
+
+            <div v-else class="logged-out-functions">
+              <div class="func-item" @click="signInOnClick()">
+                <div class="icon-container">
+                  <div class="icon-refresh-green"></div>
+                </div>
+                <div class="func-name">Đăng nhập</div>
+              </div>
+              <div class="func-item" @click="signUpOnClick()">
+                <div class="icon-container">
+                  <div class="icon-refresh-green"></div>
+                </div>
+                <div class="func-name">Đăng ký</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div class="body">
-      <div class="nav">
+      <div v-if="navType == 0" class="nav">
         <div class="nav__head">
           <div class="nav__row">
             <div class="nav__title">Bộ lọc</div>
@@ -135,33 +184,64 @@ export default {
         NewsType: null,
         ProvinceId: 0,
       },
-      isLoggedIn: false,
       auth: null,
+      isShowUserPopup: false,
     };
   },
   watch: {},
+
+  computed: {
+    navType() {
+      switch (this.$route.path) {
+        case "/TProfile":
+          return 1;
+
+        case "/TPostAdd":
+          return 2;
+
+        case "/TSignIn":
+          return 3;
+
+        case "/TSignUp":
+          return 4;
+
+        default:
+          return 0;
+      }
+    },
+  },
 
   created() {},
 
   mounted() {
     this.auth = getAuth();
-    onAuthStateChanged(this.auth, (user) => {
-      if (user) {
-        this.isLoggedIn = true;
-      } else {
-        this.isLoggedIn = false;
-      }
+
+    onAuthStateChanged(this.auth, () => {
+      console.log("Đã đăng nhập: ", this.isLoggedIn());
     });
-    console.log("Đã đăng nhập: ", this.isLoggedIn);
   },
 
   beforeUnmount() {},
 
   methods: {
+    userPopupClickOutSide() {
+      this.isShowUserPopup = false;
+    },
+    isLoggedIn() {
+      this.auth = getAuth();
+      if (!this.auth?.currentUser?.accessToken) {
+        return this.$msCookies.get("accessToken");
+      }
+      return true;
+    },
+
     signOutOnClick() {
       signOut(this.auth).then(() => {
         this.$router.push("/");
+        this.$msCookies.set("accessToken", "");
       });
+
+      this.isShowUserPopup = false;
     },
     async searchOnClick() {
       await this.$router.replace(
@@ -184,6 +264,24 @@ export default {
     },
     signInOnClick() {
       this.$router.push("/TSignIn");
+      this.isShowUserPopup = false;
+    },
+
+    signUpOnClick() {
+      this.$router.push("/TSignUp");
+      this.isShowUserPopup = false;
+    },
+
+    homeOnClick() {
+      this.$router.push("/");
+    },
+
+    iconUserOnClick() {
+      this.isShowUserPopup = !this.isShowUserPopup;
+    },
+    showProfileOnClick() {
+      this.$router.push("/TProfile");
+      this.isShowUserPopup = false;
     },
   },
 };
@@ -193,6 +291,10 @@ export default {
 @import "~@fortawesome/fontawesome-free/css/all.css";
 .container {
   .header {
+    img {
+      cursor: pointer;
+    }
+
     width: 100vw;
     height: 50px;
     background-color: white;
@@ -211,6 +313,10 @@ export default {
     .icon-list {
       display: flex;
 
+      .relative {
+        position: relative;
+      }
+
       .icon-container {
         width: 40px;
         height: 40px;
@@ -221,6 +327,74 @@ export default {
 
         &:hover {
           background-color: #d9d9d9;
+        }
+      }
+
+      .function-container {
+        z-index: 99;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        border: 1px solid #d9d9d9;
+        border-radius: 4px;
+        position: absolute;
+        top: 40px;
+        left: -125px;
+        user-select: none;
+
+        .logged-in-functions {
+          width: 175px;
+          display: flex;
+          flex-direction: column;
+          padding: 4px;
+
+          .func-item {
+            cursor: pointer;
+            display: flex;
+            padding: 5px;
+            align-items: center;
+            column-gap: 5px;
+            border-radius: 4px;
+
+            &:hover {
+              background-color: var(--color-light-green-200);
+            }
+
+            &:last-child {
+              color: #dc3545;
+            }
+
+            .icon-container {
+              margin: 0px;
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+
+        .logged-out-functions {
+          width: 175px;
+          display: flex;
+          flex-direction: column;
+          padding: 4px;
+
+          .func-item {
+            cursor: pointer;
+            display: flex;
+            padding: 5px;
+            align-items: center;
+            column-gap: 5px;
+            border-radius: 4px;
+
+            &:hover {
+              background-color: var(--color-light-green-200);
+            }
+
+            .icon-container {
+              margin: 0px;
+              width: 20px;
+              height: 20px;
+            }
+          }
         }
       }
     }

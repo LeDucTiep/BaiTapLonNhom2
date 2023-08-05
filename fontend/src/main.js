@@ -31,6 +31,7 @@ import MSResource from "./js/resource/resource";
 import DateFormater from "./js/formater/datetime";
 
 import VueNumerals from "vue-numerals";
+import Cookies from "js-cookie";
 
 const i18n = createI18n({
   locale: "VN",
@@ -91,6 +92,7 @@ app.config.globalProperties.$msResource = MSResource;
 app.config.globalProperties.$msGlobalDepartments = [];
 app.config.globalProperties.$msGlobalPositions = [];
 app.config.globalProperties.$msDateFormater = DateFormater;
+app.config.globalProperties.$msCookies = Cookies;
 
 const clickOutside = {
   beforeMount: (el, binding) => {

@@ -32,7 +32,7 @@ export default {
   components: { TPost },
   props: ["filter"],
   created() {
-    console.log("->", this.filter);
+    // console.log("->", this.filter);
   },
 };
 </script>

@@ -8,7 +8,12 @@
 
 <script setup>
 import { ref } from "vue";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
+} from "firebase/auth";
 import router from "@/router";
 
 const email = ref("");
@@ -29,7 +34,17 @@ const register = () => {
     });
 };
 
-const signInWithGoogle = () => {};
+const signInWithGoogle = () => {
+  const provider = new GoogleAuthProvider();
+  signInWithPopup(getAuth(), provider)
+    .then((result) => {
+      console.log(result);
+      router.push("/feed");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
 </script>
 
 <style>
