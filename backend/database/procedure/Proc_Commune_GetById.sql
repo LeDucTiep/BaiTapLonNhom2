@@ -1,6 +1,4 @@
-﻿DROP PROCEDURE IF EXISTS `misa.web202303_mf1609_leductiep`.Proc_Commune_GetById;
-
-CREATE PROCEDURE `misa.web202303_mf1609_leductiep`.Proc_Commune_GetById (IN communeId char(36), IN districtId char(36))
+﻿CREATE OR REPLACE PROCEDURE `tdtl.leductiep2023`.Proc_Commune_GetById (IN communeId char(36), IN districtId char(36))
 COMMENT '
   Output: Thông tin
   Author: LeDucTiep (17/05/2023)

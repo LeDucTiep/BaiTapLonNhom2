@@ -1,5 +1,5 @@
 ﻿CREATE OR REPLACE DEFINER = 'root'@'localhost'
-PROCEDURE `misa.web202303_mf1609_leductiep`.Proc_Commune_Paging (IN districtId char(36),IN _offset int,
+PROCEDURE `tdtl.leductiep2023`.Proc_Commune_Paging (IN districtId char(36),IN _offset int,
 IN _limit int,
 IN searchTerm varchar(255),
 OUT totalRecord int)

@@ -4,21 +4,16 @@
       <div class="icon-container">
         <div class="icon-eye-black"></div>
       </div>
-      3.7K
+      {{ ViewCount }}
     </div>
-    <div class="img__container">
+    <div class="img__container" @click="postDetailOnClick()">
       <div class="img">
-        <img
-          width="280"
-          height="165"
-          src="https://timdothatlac.vn/storage/images/categories/33a5606b-5886-48c7-ba1c-bf3d713d8c3c.jpg"
-          alt="Rơi giấy tờ tên Trương Quang Hiếu tại Tp. Vũng Tàu"
-        />
+        <img height="165" :src="ImgLink" :alt="aPost.Title" />
       </div>
     </div>
     <div class="info">
-      <div class="title">
-        Rơi giấy tờ tên Trương Quang Hiếu tại Tp. Vũng Tàu
+      <div class="title" @click="postDetailOnClick()">
+        {{ aPost.Title }}
       </div>
 
       <div class="position">
@@ -28,15 +23,14 @@
             height="0.875em"
             viewBox="0 0 384 512"
           >
-            <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
             <path
               d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"
             />
           </svg>
-          Bà rịa - Vũng tàu
+          {{ aPost.CityName }}
         </div>
 
-        <div class="news-type">Tin cần tìm</div>
+        <div class="news-type">{{ NewsType }}</div>
       </div>
     </div>
   </div>
@@ -46,12 +40,43 @@
 export default {
   name: "TPost",
   components: {},
+  computed: {
+    NewsType() {
+      if (this.news.NewsType == 0) {
+        return "Tin cần tìm";
+      } else {
+        return "Tin nhặt được";
+      }
+    },
+    ViewCount() {
+      if (this.news.ViewCount / 1000 > 1) {
+        let hundred = Math.floor(this.news.ViewCount / 100);
+
+        return hundred / 10 + "k";
+      }
+      return this.news.ViewCount;
+    },
+    ImgLink() {
+      return this.news?.ImgLink
+        ? this.$msApi.NewsApi.GetImg(this.news.ImgLink)
+        : "";
+    },
+  },
+  props: ["news"],
+
   data() {
-    return {};
+    return {
+      aPost: this.news ? this.news : {},
+    };
   },
   watch: {},
 
-  methods: {},
+  methods: {
+    postDetailOnClick() {
+      console.log("ahihi", this.news.NewsId);
+      this.$router.push("/TPostDetail/" + this.news.NewsId);
+    },
+  },
 
   created() {},
 
@@ -90,6 +115,9 @@ export default {
     position: relative;
 
     .img {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 280px;
       height: 165px;
       cursor: pointer;
@@ -112,6 +140,10 @@ export default {
       font-size: 18px;
       height: 68px;
       font-weight: bold;
+      cursor: pointer;
+      &:hover {
+        color: #28a745;
+      }
     }
 
     .position {

@@ -17,13 +17,13 @@ namespace MISA.WebFresher2023.Demo.BL.Automapper
             CreateMap<Account, AccountDto>();
             CreateMap<AccountDto, Account>();
             // Map AccountCreateDto sang Account
-            CreateMap<AccountCreateDto, Account>();
+            CreateMap<NewsCreateDto, Account>();
             // Map AccountUpdateDto sang Account
             CreateMap<AccountUpdateDto, Account>();
 
             CreateMap<AccountUpdateDto, Account>();
 
-            CreateMap<AccountCreateDto, AccountDto>();
+            CreateMap<NewsCreateDto, AccountDto>();
 
             CreateMap<BasePage<Account>, BasePage<AccountDto>>();
 

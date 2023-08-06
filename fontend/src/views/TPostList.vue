@@ -1,27 +1,6 @@
 <template>
   <div class="posts">
-    <TPost></TPost>
-    <TPost></TPost>
-    <TPost></TPost>
-    <TPost></TPost>
-    <TPost></TPost>
-    <TPost></TPost>
-    <TPost></TPost>
-    <TPost></TPost>
-    <TPost></TPost>
-    <TPost></TPost>
-    <TPost></TPost>
-    <TPost></TPost>
-    <TPost></TPost>
-    <TPost></TPost>
-    <TPost></TPost>
-    <TPost></TPost>
-    <TPost></TPost>
-    <TPost></TPost>
-    <TPost></TPost>
-    <TPost></TPost>
-    <TPost></TPost>
-    <TPost></TPost>
+    <TPost v-for="news in newsList" :key="news" :news="news"></TPost>
   </div>
 </template>
 
@@ -31,8 +10,26 @@ export default {
   name: "TPostList",
   components: { TPost },
   props: ["filter"],
-  created() {
-    // console.log("->", this.filter);
+  async created() {
+    await this.loadData();
+  },
+  data() {
+    return {
+      newsList: [],
+    };
+  },
+  methods: {
+    async loadData() {
+      const response = await this.$msAxios("get", this.$msApi.NewsApi.Paging, {
+        params: {
+          // Kích thước của trang
+          pageSize: 20,
+          // vị trí trang
+          pageNumber: 1,
+        },
+      });
+      if (response?.data?.Data) this.newsList = response.data.Data;
+    },
   },
 };
 </script>

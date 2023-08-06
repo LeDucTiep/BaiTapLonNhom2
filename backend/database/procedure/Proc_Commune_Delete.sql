@@ -1,4 +1,4 @@
-﻿CREATE OR REPLACE PROCEDURE `misa.web202303_mf1609_leductiep`.Proc_Commune_Delete (IN communeId char(36))
+﻿CREATE OR REPLACE PROCEDURE `tdtl.leductiep2023`.Proc_Commune_Delete (IN communeId char(36))
 COMMENT '
   Param: employeeId: Id chức vụ cần xóa
   Author: LeDucTiep (16/05/2023)

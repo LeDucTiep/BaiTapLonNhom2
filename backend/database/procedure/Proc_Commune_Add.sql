@@ -1,5 +1,5 @@
 ﻿CREATE OR REPLACE DEFINER = 'root'@'localhost'
-PROCEDURE `misa.web202303_mf1609_leductiep`.Proc_Commune_Add (IN communeId char(36),
+PROCEDURE `tdtl.leductiep2023`.Proc_Commune_Add (IN communeId char(36),
 IN name varchar(255),
 IN districtId char(36),
 IN createdDate datetime,

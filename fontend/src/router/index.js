@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 import TPostList from "../views/TPostList.vue";
+import TPostDetail from "../views/TPostDetail.vue";
 import TPostAdd from "../views/TPostAdd.vue";
 import TSignIn from "../views/TSignIn.vue";
 import TSignUp from "../views/TSignUp.vue";
@@ -10,6 +11,12 @@ import TProfile from "../views/TProfile.vue";
 const routers = [
   { path: "/", component: TPostList, name: "Home" },
   { path: "/:filter", component: TPostList, name: "TPostList", props: true },
+  {
+    path: "/TPostDetail/:PostId",
+    component: TPostDetail,
+    name: "TPostDetail",
+    props: true,
+  },
   { path: "/TPostAdd", component: TPostAdd, name: "TPostAdd" },
   { path: "/TSignIn", component: TSignIn, name: "TSignIn" },
   { path: "/TSignUp", component: TSignUp, name: "TSignUp" },

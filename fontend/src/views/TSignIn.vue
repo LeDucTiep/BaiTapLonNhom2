@@ -29,8 +29,6 @@ export default {
     async register() {
       const auth = getAuth();
 
-      console.log("User", auth.currentUser);
-
       try {
         const resData = await signInWithEmailAndPassword(
           auth,
@@ -51,16 +49,19 @@ export default {
       const provider = new GoogleAuthProvider();
       const auth = getAuth();
 
-      console.log("User", auth.currentUser);
-
       signInWithPopup(auth, provider)
         .then((result) => {
           console.log("Success dang nhap", result);
 
           if (result?.user?.accessToken) {
             this.$msCookies.set("accessToken", result.user.accessToken);
-            const actoken = this.$msCookies.get("accessToken");
-            console.log("Success dang nhap", actoken);
+            // const actoken = this.$msCookies.get("accessToken");
+            // console.log("Success dang nhap", actoken);
+          }
+
+          if (result?.user?.photoURL) {
+            this.$msCookies.set("photoURL", result.user.photoURL);
+            console.log(this.$msCookies.get("photoURL"));
           }
 
           this.$router.push("/");

@@ -8,42 +8,22 @@ namespace MISA.WebFresher2023.Demo.BL.Dto
 {
     public class AccountUpdateDto
     {
-        public string AccountCode { get; set; }
+        public Guid? AccountId { get; set; }
 
-        public int Rank { get; set; }
+        public string? Email { get; set; }
 
-        public string MisaCode { get; set; }
+        public string? FullName { get; set; }
 
-        public string? NameVi { get; set; }
+        public string? PhoneNumber { get; set; }
 
-        public string? NameEn { get; set; }
+        public int? YearOfBirth { get; set; }
 
-        public Guid? AccountSyntheticId { get; set; }
+        public Guid? CityId { get; set; }
 
-        public Guid? AccountPropertyId { get; set; }
+        public Guid? DistrictId { get; set; }
 
-        public string? Note { get; set; }
+        public Guid? CommuneId { get; set; }
 
-        public bool? HasForeignCurrencyAccounting { get; set; }
-
-        public int? ObjectType { get; set; }
-
-        public int? CostAggregationObject { get; set; }
-
-        public int? TheOrder { get; set; }
-
-        public int? PurchaseContract { get; set; }
-
-        public int? Unit { get; set; }
-
-        public bool? BankAccount { get; set; }
-
-        public int? Construction { get; set; }
-
-        public int? ContractOfSale { get; set; }
-
-        public int? ExpenseItem { get; set; }
-
-        public int? StatisticalCode { get; set; }
+        public int? Role { get; set; }
     }
 }

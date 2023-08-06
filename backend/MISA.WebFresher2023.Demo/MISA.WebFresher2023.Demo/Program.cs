@@ -70,45 +70,19 @@ builder.Services.AddCors(options =>
 // Sử dụng automapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
-builder.Services.AddScoped<IPositionRepository, PositionRepository>();
-builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+builder.Services.AddScoped<ICommentRepository, CommentRepository>();
+builder.Services.AddScoped<INewsRepository, NewsRepository>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
-builder.Services.AddScoped<IAccountPropertyRepository, AccountPropertyRepository>();
-builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
-builder.Services.AddScoped<ICustomerAndGroupRepository, CustomerAndGroupRepository>();
-builder.Services.AddScoped<ICustomerGroupRepository, CustomerGroupRepository>();
-builder.Services.AddScoped<IContactInforRepository, ContactInforRepository>();
-builder.Services.AddScoped<ITermsOfPaymentRepository, TermsOfPaymentRepository>();
-builder.Services.AddScoped<IBankAccountRepository, BankAccountRepository>();
-builder.Services.AddScoped<INationRepository, NationRepository>();
 builder.Services.AddScoped<ICityRepository, CityRepository>();
 builder.Services.AddScoped<IDistrictRepository, DistrictRepository>();
 builder.Services.AddScoped<ICommuneRepository, CommuneRepository>();
-builder.Services.AddScoped<IOtherLocationRepository, OtherLocationRepository>();
-builder.Services.AddScoped<ISpecificAddressRepository, SpecificAddressRepository>();
-builder.Services.AddScoped<IReceiptRepository, ReceiptRepository>();
-builder.Services.AddScoped<IBookKeepingRepository, BookKeepingRepository>();
 
-builder.Services.AddScoped<IEmployeeService, EmployeeService>();
-builder.Services.AddScoped<IPositionService, PositionService>();
-builder.Services.AddScoped<IDepartmentService, DepartmentService>();
+builder.Services.AddScoped<ICommentService, CommentService>();
+builder.Services.AddScoped<INewsService, NewsService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
-builder.Services.AddScoped<IAccountPropertyService, AccountPropertyService>();
-builder.Services.AddScoped<ICustomerService, CustomerService>();
-builder.Services.AddScoped<ICustomerAndGroupService, CustomerAndGroupService>();
-builder.Services.AddScoped<ICustomerGroupService, CustomerGroupService>();
-builder.Services.AddScoped<IContactInforService, ContactInforService>();
-builder.Services.AddScoped<ITermsOfPaymentService, TermsOfPaymentService>();
-builder.Services.AddScoped<IBankAccountService, BankAccountService>();
-builder.Services.AddScoped<INationService, NationService>();
 builder.Services.AddScoped<ICityService, CityService>();
 builder.Services.AddScoped<IDistrictService, DistrictService>();
 builder.Services.AddScoped<ICommuneService, CommuneService>();
-builder.Services.AddScoped<IOtherLocationService, OtherLocationService>();
-builder.Services.AddScoped<ISpecificAddressService, SpecificAddressService>();
-builder.Services.AddScoped<IReceiptService, ReceiptService>();
-builder.Services.AddScoped<IBookKeepingService, BookKeepingService>();
 
 builder.Services.AddScoped<IMSDatabase, MSDatabase>();
 

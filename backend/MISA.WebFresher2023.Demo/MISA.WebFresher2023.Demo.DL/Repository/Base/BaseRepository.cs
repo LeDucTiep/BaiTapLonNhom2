@@ -370,7 +370,7 @@ namespace MISA.WebFresher2023.Demo.DL.Repository
                     commandType: CommandType.StoredProcedure
                 );
             }
-            catch
+            catch(Exception ex)
             {
                 throw new InternalException();
             }

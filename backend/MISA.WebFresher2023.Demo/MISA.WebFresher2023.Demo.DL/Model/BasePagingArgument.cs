@@ -33,7 +33,6 @@ namespace MISA.WebFresher2023.Demo.DL.Model
         [MSMaxLength(Length = 255, ErrorCode = (int)PagingErrorCode.EmployeeSearchTermTooLong)]
         public string SearchTerm { get => searchTerm; set => searchTerm = value; }
 
-        public string[] ColumnList { get; set; }
-
+        public string[]? ColumnList { get; set; }
     }
 }

@@ -163,6 +163,7 @@
       </div>
     </div>
   </div>
+  <MSReminderNotice></MSReminderNotice>
 </template>
 
 <script>
@@ -205,8 +206,11 @@ export default {
         case "/TSignUp":
           return 4;
 
-        default:
+        case "/":
           return 0;
+
+        default:
+          return -1;
       }
     },
   },
@@ -455,9 +459,14 @@ export default {
         }
       }
     }
+    &:has(.nav) {
+      .content {
+        width: calc(100vw - 300px);
+      }
+    }
     .content {
       height: calc(100vh - 50px);
-      width: calc(100vw - 300px);
+      width: 100vw;
       overflow: auto;
 
       &::-webkit-scrollbar {

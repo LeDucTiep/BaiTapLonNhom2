@@ -6,6 +6,32 @@
 @import 'icon';
 @import 'cursor';
 
+.w-1\/2 {
+  width: 50%;
+}
+
+.rg-6 {
+  row-gap: 6px;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+@for $i from 1 through 24 {
+  .cg-#{$i} {
+    column-gap: #{$i}px;
+  }
+}
+
+.p-l-12 {
+  padding-left: 12px
+}
+
+.justify-center {
+  justify-content: center
+}
+
 * {
   font-family: Source Sans Pro, sans-serif !important;
   margin: 0px;

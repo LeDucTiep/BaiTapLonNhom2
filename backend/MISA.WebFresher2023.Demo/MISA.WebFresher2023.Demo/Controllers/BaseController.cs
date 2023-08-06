@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MISA.WebFresher2023.Demo.BL.Service;
+using MISA.WebFresher2023.Demo.Common.MyException;
 using MISA.WebFresher2023.Demo.DL.Model;
 
 namespace MISA.WebFresher2023.Demo.Controllers
@@ -19,6 +20,26 @@ namespace MISA.WebFresher2023.Demo.Controllers
         #endregion
 
         #region Method
+
+        /// <summary>
+        /// API thêm một bản ghi
+        /// </summary>
+        /// <param name="entityCreateDto">Thông tin tài khoản cần thêm</param>
+        /// <exception cref="BadRequestException">Lỗi thông tin bản ghi</exception>
+        /// <returns>Id bản ghi vừa thêm</returns>
+        /// Author: LeDucTiep (23/05/2023)
+        [HttpPost]
+        public async Task<IActionResult> PostAsync(TEntityCreateDto entityCreateDto)
+        {
+            if (entityCreateDto == null)
+            {
+                throw new BadRequestException();
+            }
+            TEntityDto entityDto = await _baseService.PostAsync(entityCreateDto);
+
+            return StatusCode(201, entityDto);
+        }
+
         /// <summary>
         /// API Lấy một nhân viên theo id
         /// </summary>

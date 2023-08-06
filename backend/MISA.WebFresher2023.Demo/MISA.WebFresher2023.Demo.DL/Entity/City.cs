@@ -11,7 +11,5 @@ namespace MISA.WebFresher2023.Demo.DL.Entity
         public Guid CityId { get; set; }
 
         public string Name { get; set; }
-
-        public Guid? NationId { get; set; }
     }
 }

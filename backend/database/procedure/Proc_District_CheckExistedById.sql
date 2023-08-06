@@ -1,4 +1,4 @@
-CREATE OR REPLACE PROCEDURE `misa.web202303_mf1609_leductiep`.Proc_District_CheckExistedById (IN districtId char(36))
+CREATE OR REPLACE PROCEDURE `tdtl.leductiep2023`.Proc_District_CheckExistedById (IN districtId char(36))
 COMMENT '
   Param: positionId: Id ch?c v? 
   Output: true: có
