@@ -135,12 +135,18 @@
 </template>
 
 <script>
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 export default {
   name: "TPostAdd",
   components: {},
   props: [],
   data() {
     return {
+      header: {
+        headers: {
+          Authorization: "Bearer ",
+        },
+      },
       news: {
         Category: 0,
         NewsType: 0,
@@ -168,7 +174,6 @@ export default {
 
     DistrictPagingApi: {
       get() {
-        console.log(this.news);
         if (this.news?.CityId) {
           return this.$msApi.DistrictApi.Paging + "/" + this.news?.CityId;
         }
@@ -186,8 +191,33 @@ export default {
     },
   },
   created() {},
+  mounted() {
+    this.auth = getAuth();
 
+    onAuthStateChanged(this.auth, () => {
+      if (!this.isLoggedIn()) {
+        this.$router.push("/TSignIn");
+      }
+    });
+  },
   methods: {
+    isLoggedIn() {
+      this.auth = getAuth();
+      if (!this.auth?.currentUser?.accessToken) {
+        const cookie = this.$msCookies.get("accessToken");
+        return cookie;
+      } else {
+        this.$msCookies.set("accessToken", this.auth.currentUser.accessToken);
+      }
+      const cookie = this.$msCookies.get("accessToken");
+      this.header = {
+        headers: {
+          Authorization: "Bearer " + cookie,
+        },
+      };
+
+      return true;
+    },
     async postOnClick() {
       const isValid = this.validate();
       if (isValid) {
@@ -201,7 +231,8 @@ export default {
         const response = await this.$msAxios(
           "post",
           this.$msApi.NewsApi.Post,
-          dataSend
+          dataSend,
+          this.header
         );
 
         if (!response) {
@@ -209,14 +240,15 @@ export default {
             type: this.$msEnum.NoticeType.Error,
             message: this.$t("Notice.Post.Error"),
           });
-        }
-
-        if (response.status == this.$msEnum.HttpStatusCode.CreatedSuccess) {
+        } else if (
+          response.status == this.$msEnum.HttpStatusCode.CreatedSuccess
+        ) {
           this.$msEmitter.emit("addNotice", {
             type: this.$msEnum.NoticeType.Success,
             message: this.$t("Notice.Post.Success"),
           });
         }
+        this.$router.push("/");
       }
     },
     validate() {
@@ -308,7 +340,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" >
 .center {
   width: 100%;
   display: flex;
@@ -316,6 +348,7 @@ export default {
   align-items: center;
 }
 .new-post {
+  margin-top: 134px;
   width: 777px;
   padding: 24px;
   .title {

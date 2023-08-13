@@ -20,12 +20,22 @@ export default {
   },
   methods: {
     async loadData() {
+      let filter = {};
+      try {
+        filter = JSON.parse(this.filter);
+      } catch {
+        //
+      }
       const response = await this.$msAxios("get", this.$msApi.NewsApi.Paging, {
         params: {
           // Kích thước của trang
-          pageSize: 20,
+          PageSize: 20,
           // vị trí trang
-          pageNumber: 1,
+          PageNumber: 1,
+          SearchTerm: filter.SearchTerm,
+          Category: filter.Category,
+          NewsType: filter.NewsType,
+          ProvinceId: filter.ProvinceId,
         },
       });
       if (response?.data?.Data) this.newsList = response.data.Data;
@@ -34,7 +44,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .posts {
   padding-top: 12px;
   display: flex;

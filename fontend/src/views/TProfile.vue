@@ -5,9 +5,17 @@
     </div>
 
     <div class="profile__body">
-      <MSInputText :readonly="isReadonly" title="Họ và tên"></MSInputText>
+      <MSInputText
+        v-model:value="user.FullName"
+        :readonly="isReadonly"
+        title="Họ và tên"
+      ></MSInputText>
 
-      <MSInputText :readonly="isReadonly" title="Số điện thoại"></MSInputText>
+      <MSInputText
+        v-model:value="user.PhoneNumber"
+        :readonly="isReadonly"
+        title="Số điện thoại"
+      ></MSInputText>
 
       <MSInputRadio
         :readonly="isReadonly"
@@ -20,16 +28,24 @@
         v-model:id="user.Gender"
       ></MSInputRadio>
 
-      <MSInputText :readonly="isReadonly" title="Năm sinh"></MSInputText>
+      <MSInputText
+        v-model:value="user.YearOfBirth"
+        :readonly="isReadonly"
+        title="Năm sinh"
+      ></MSInputText>
 
-      <MSInputText :readonly="isReadonly" title="Địa chỉ"></MSInputText>
+      <MSInputText
+        v-model:value="user.Address"
+        :readonly="isReadonly"
+        title="Địa chỉ"
+      ></MSInputText>
     </div>
     <div class="profile__foot">
       <div v-if="isReadonly" @click="editOnClick()" class="main-button">
         Chỉnh sửa
       </div>
 
-      <div v-else class="main-button">Lưu</div>
+      <div v-else class="main-button" @click="saveOnClick()">Lưu</div>
     </div>
   </div>
 </template>
@@ -39,26 +55,53 @@ export default {
   name: "TProfile",
   components: {},
   props: {
-    editMode: {
-      type: Boolean,
-      default: true,
+    readonly: {
+      type: String,
+      default: "",
     },
   },
   data() {
     return {
+      header: {
+        headers: {
+          Authorization: "Bearer ",
+        },
+      },
       user: {},
       auth: null,
-      isReadonly: this.editMode,
+      isReadonly: !this.readonly,
     };
   },
   watch: {},
 
   computed: {},
 
-  created() {},
+  async created() {
+    const cookie = this.$msCookies.get("accessToken");
+    this.header = {
+      headers: {
+        Authorization: "Bearer " + cookie,
+      },
+    };
+
+    const response = await this.$msAxios(
+      "get",
+      this.$msApi.AccountApi.CheckToken,
+      this.header
+    );
+    this.user = response.data;
+    console.log(this.user);
+  },
 
   mounted() {
-    if (this.$msCookies.get("accessToken") == false) {
+    const cookie = this.$msCookies.get("accessToken");
+    this.header = {
+      headers: {
+        Authorization: "Bearer " + cookie,
+      },
+    };
+
+    if (cookie == false) {
       this.$router.push("/");
     }
   },
@@ -66,6 +109,27 @@ export default {
   beforeUnmount() {},
 
   methods: {
+    async saveOnClick() {
+      const response = await this.$msAxios(
+        "put",
+        this.$msApi.AccountApi.Put(this.user.AccountId),
+        this.user,
+        this.header
+      );
+
+      if (response.status == 200) {
+        this.$msEmitter.emit("addNotice", {
+          type: this.$msEnum.NoticeType.Success,
+          message: "Sửa thành công",
+        });
+        this.$router.push("/");
+      } else {
+        this.$msEmitter.emit("addNotice", {
+          type: this.$msEnum.NoticeType.Error,
+          message: "Có lỗi xảy ra",
+        });
+      }
+    },
     editOnClick() {
       this.isReadonly = false;
     },

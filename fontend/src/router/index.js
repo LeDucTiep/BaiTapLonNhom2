@@ -4,9 +4,11 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import TPostList from "../views/TPostList.vue";
 import TPostDetail from "../views/TPostDetail.vue";
 import TPostAdd from "../views/TPostAdd.vue";
+import TCrawlData from "../views/TCrawlData.vue";
 import TSignIn from "../views/TSignIn.vue";
 import TSignUp from "../views/TSignUp.vue";
 import TProfile from "../views/TProfile.vue";
+import AdminPostList from "../views/AdminPostList.vue";
 
 const routers = [
   { path: "/", component: TPostList, name: "Home" },
@@ -18,9 +20,21 @@ const routers = [
     props: true,
   },
   { path: "/TPostAdd", component: TPostAdd, name: "TPostAdd" },
+  { path: "/TCrawlData", component: TCrawlData, name: "TCrawlData" },
   { path: "/TSignIn", component: TSignIn, name: "TSignIn" },
   { path: "/TSignUp", component: TSignUp, name: "TSignUp" },
   { path: "/TProfile", component: TProfile, name: "TProfile" },
+  {
+    path: "/TProfile/:readonly",
+    component: TProfile,
+    name: "TProfile/",
+    props: true,
+  },
+  {
+    path: "/AdminPostList",
+    component: AdminPostList,
+    name: "AdminPostList",
+  },
 ];
 
 // Khởi tạo router

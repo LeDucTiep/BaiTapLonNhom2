@@ -46,6 +46,7 @@
             inputValue &&
             inputValue?.indexOf('-') != -1,
         }"
+        :type="inputType"
         :placeholder="placeholder"
         v-model="inputValue"
         @input="
@@ -62,11 +63,11 @@
         :readonly="readonly"
       />
 
-      <p v-if="isValidating && isInvalidInput" class="errormessage">
-        {{ errorMessage }}
-      </p>
       <p v-if="isErroredFromOutSide" class="errormessage">
         {{ messageFromOutSide }}
+      </p>
+      <p v-else-if="isValidating && isInvalidInput" class="errormessage">
+        {{ errorMessage }}
       </p>
     </div>
   </div>

@@ -9,6 +9,7 @@
         alt="logo"
       />
       <MSInputSearch
+        v-model:value="filter.SearchTerm"
         placeholder="Nhập tên trong giấy tờ, tên đồ vật, tên vật nuôi ..."
       ></MSInputSearch>
 
@@ -61,7 +62,7 @@
                 <div class="func-name">Trang cá nhân</div>
               </div>
 
-              <div class="func-item">
+              <div class="func-item" @click="editProfileOnClick()">
                 <div class="icon-container">
                   <div class="icon-refresh-green"></div>
                 </div>
@@ -145,7 +146,7 @@
             <MSInputCombobox
               title="Chọn khu vục"
               propText="Name"
-              propValue="Id"
+              propValue="CityId"
               v-model:id="filter.ProvinceId"
               :listItems="provinces"
             >
@@ -164,6 +165,7 @@
     </div>
   </div>
   <MSReminderNotice></MSReminderNotice>
+  <MSTooltip></MSTooltip>
 </template>
 
 <script>
@@ -175,15 +177,12 @@ export default {
   data() {
     return {
       postListKey: 0,
-      provinces: [
-        { Id: 0, Name: "Toàn quốc" },
-        { Id: 1, Name: "Bac Giang" },
-        { Id: 2, Name: "Bac Ninh" },
-      ],
+      provinces: [{ CityId: "", Name: "Toàn quốc" }],
       filter: {
         Category: null,
         NewsType: null,
-        ProvinceId: 0,
+        ProvinceId: "",
+        SearchTerm: "",
       },
       auth: null,
       isShowUserPopup: false,
@@ -193,8 +192,12 @@ export default {
 
   computed: {
     navType() {
+      if (this.$route.path.startsWith("/TPostDetail")) return 1;
       switch (this.$route.path) {
         case "/TProfile":
+          return 1;
+
+        case "/TProfile/edit":
           return 1;
 
         case "/TPostAdd":
@@ -210,12 +213,25 @@ export default {
           return 0;
 
         default:
-          return -1;
+          return 0;
       }
     },
   },
 
-  created() {},
+  async created() {
+    const response = await this.$msAxios("get", this.$msApi.CityApi.Paging, {
+      params: {
+        // Kích thước của trang
+        pageSize: 100,
+        // vị trí trang
+        pageNumber: 1,
+      },
+    });
+    for (const key in response.data.Data) {
+      const element = response.data.Data[key];
+      this.provinces.push(element);
+    }
+  },
 
   mounted() {
     this.auth = getAuth();
@@ -235,6 +251,8 @@ export default {
       this.auth = getAuth();
       if (!this.auth?.currentUser?.accessToken) {
         return this.$msCookies.get("accessToken");
+      } else {
+        this.$msCookies.set("accessToken", this.auth.currentUser.accessToken);
       }
       return true;
     },
@@ -287,12 +305,15 @@ export default {
       this.$router.push("/TProfile");
       this.isShowUserPopup = false;
     },
+    editProfileOnClick() {
+      this.$router.push("/TProfile/edit");
+      this.isShowUserPopup = false;
+    },
   },
 };
 </script>
 
 <style lang="scss">
-@import "~@fortawesome/fontawesome-free/css/all.css";
 .container {
   .header {
     img {

@@ -17,6 +17,7 @@ import MSReminderNotice from "./components/popup/MSReminderNotice.vue";
 import MSNoticeMessage from "./components/popup/MSNoticeMessage.vue";
 import MSTooltip from "./components/popup/MSTooltip.vue";
 import MSCombobox from "./components/combobox/MSCombobox.vue";
+import MenuFeature from "./views/MenuFeature.vue";
 
 import router from "./router/index.js";
 import emitter from "tiny-emitter/instance";
@@ -60,6 +61,7 @@ initializeApp(firebaseConfig);
 
 const app = createApp(App);
 app.use(i18n);
+app.component("MenuFeature", MenuFeature);
 app.component("MSLoading", MSLoading);
 app.component("MSCombobox", MSCombobox);
 app.component("MSDialog", MSDialog);

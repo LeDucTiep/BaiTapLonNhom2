@@ -246,7 +246,7 @@ const mixin = {
      * Author: LeDucTiep (17/05/2023)
      */
     async doneTyping() {
-      if (this.inputValue) {
+      if (this.inputValue && this.isValidating) {
         const res = await this.onDoneTyping();
         // Nếu đã xảy ra lỗi thì hiển thị
         this.isErroredFromOutSide = res?.isErrored;

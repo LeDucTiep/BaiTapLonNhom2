@@ -9,6 +9,7 @@ const MSApi = {
     Put: (id) => `${BaseApi}/Accounts/${id}`,
     Delete: (id) => `${BaseApi}/Accounts/${id}`,
     Paging: `${BaseApi}/Accounts/paging`,
+    CheckToken: `${BaseApi}/Accounts/check-token`,
   },
 
   NewsApi: {
@@ -30,7 +31,7 @@ const MSApi = {
     GetNewCode: `${BaseApi}/Comments/new-account-code`,
     CheckCodeDuplicated: `${BaseApi}/Comments/is-code-duplicated`,
     CheckEditCodeDuplicated: `${BaseApi}/Comments/is-edit-code-duplicated`,
-    Paging: `${BaseApi}/Comments/ms-paging`,
+    Paging: `${BaseApi}/Comments/paging`,
     ExportExcel: `${BaseExportApi}/Comments/exporting`,
     GetAll: `${BaseApi}/Comments`,
     PagingCombobox: `${BaseApi}/Comments/paging`,
