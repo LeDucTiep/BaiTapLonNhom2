@@ -10,6 +10,7 @@ namespace MISA.WebFresher2023.Demo.BL.Dto
     {
         public Guid? AccountId { get; set; }
 
+        public string? Guid28 { get; set; }
         public string? Email { get; set; }
 
         public string? FullName { get; set; }
@@ -18,11 +19,10 @@ namespace MISA.WebFresher2023.Demo.BL.Dto
 
         public int? YearOfBirth { get; set; }
 
-        public Guid? CityId { get; set; }
+        public string? Picture { get; set; }
+        public string? Address { get; set; }
 
-        public Guid? DistrictId { get; set; }
-
-        public Guid? CommuneId { get; set; }
+        public int? Gender { get; set; }
 
         public int? Role { get; set; }
     }

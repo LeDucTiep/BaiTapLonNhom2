@@ -12,9 +12,10 @@ namespace MISA.WebFresher2023.Demo.Common
             string id = claimsPrincipal.FindFirstValue(FirebaseUserClaimType.ID);
             string email = claimsPrincipal.FindFirstValue(FirebaseUserClaimType.EMAIL);
             string username = claimsPrincipal.FindFirstValue(FirebaseUserClaimType.USERNAME);
+            string picture = claimsPrincipal.FindFirstValue(FirebaseUserClaimType.PICTURE);
             bool.TryParse(claimsPrincipal.FindFirstValue(FirebaseUserClaimType.EMAIL_VERIFIED), out bool emailVerified);
 
-            return new FirebaseUser(id, email, username, emailVerified);
+            return new FirebaseUser(id, email, username, emailVerified, picture);
         }
     }
 }

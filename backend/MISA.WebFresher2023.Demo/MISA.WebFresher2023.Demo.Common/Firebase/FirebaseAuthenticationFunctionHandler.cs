@@ -67,6 +67,7 @@ namespace MISA.WebFresher2023.Demo.Common
                 new Claim(FirebaseUserClaimType.EMAIL, claims.GetValueOrDefault("email", "").ToString()),
                 new Claim(FirebaseUserClaimType.EMAIL_VERIFIED, claims.GetValueOrDefault("email_verified", "").ToString()),
                 new Claim(FirebaseUserClaimType.USERNAME, claims.GetValueOrDefault("name", "").ToString()),
+                new Claim(FirebaseUserClaimType.PICTURE, claims.GetValueOrDefault("picture", "").ToString()),
             };
         }
     }

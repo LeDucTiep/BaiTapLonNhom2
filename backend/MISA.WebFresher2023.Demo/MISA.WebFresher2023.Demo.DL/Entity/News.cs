@@ -31,5 +31,6 @@ namespace MISA.WebFresher2023.Demo.DL.Entity
         public string? ContactInfor { get; set; }
 
         public int? ViewCount { get; set; }
+        public int? NewsStatus { get; set; }
     }
 }

@@ -1,6 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DocumentFormat.OpenXml.Drawing.Charts;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MISA.WebFresher2023.Demo.BL.Dto;
 using MISA.WebFresher2023.Demo.BL.Service;
+using MISA.WebFresher2023.Demo.Common;
+using MISA.WebFresher2023.Demo.Common.MyException;
 using MISA.WebFresher2023.Demo.DL.Entity;
 using System.Reflection;
 
@@ -11,9 +15,97 @@ namespace MISA.WebFresher2023.Demo.Controllers
     [Route("api/v1/[controller]s")]
     public class NewsController : BaseController<News, NewsDto, NewsCreateDto, NewsUpdateDto>
     {
-        public NewsController(INewsService newsService
+        IAccountService _accountService;
+        public NewsController(INewsService newsService,
+            IAccountService accountService
             ) : base(newsService)
         {
+            _accountService = accountService;
+        }
+
+        [HttpGet("{id}")]
+        public override async Task<IActionResult> GetAsync(Guid id)
+        {
+            NewsDto? newsDto = await _baseService.GetAsync(id);
+
+            if (newsDto?.AccountId != null)
+            {
+                AccountDto? account = await _accountService.GetAsync((Guid)newsDto.AccountId);
+                newsDto.AccountName = account?.FullName;
+            }
+
+            if (newsDto?.CreatedDate != null)
+            {
+
+                DateTime time = (DateTime)newsDto.CreatedDate;
+                int ngay = time.Day;
+                int thang = time.Month;
+                int nam = time.Year;
+
+                DateTime now = DateTime.Now;
+
+                var timeChange = now - time;
+
+                int days = (int)Math.Floor(timeChange.TotalDays);
+                int hours = (int)Math.Floor(timeChange.TotalHours);
+                int minutes = (int)Math.Floor(timeChange.TotalMinutes);
+                int seconds = (int)Math.Floor(timeChange.TotalSeconds);
+
+                if (days > 0)
+                {
+                    if (days > 7)
+                        newsDto.TimeAgo = $"{ngay}/{thang}/{nam}";
+                    else
+                        newsDto.TimeAgo = days.ToString() + " ngày trước";
+                }
+                else if(hours > 0)
+                {
+                    newsDto.TimeAgo = hours.ToString() + " giờ trước";
+                }
+                else if(minutes > 0)
+                {
+                    newsDto.TimeAgo = minutes.ToString() + " phút trước";
+
+                }else if(seconds > 0)
+                {
+                    newsDto.TimeAgo = minutes.ToString() + " giây trước";
+                }
+            }
+            if (newsDto == null)
+                return NoContent();
+
+            return Ok(newsDto);
+        }
+
+        /// <summary>
+        /// API thêm một bản ghi
+        /// </summary>
+        /// <param name="entityCreateDto">Thông tin tài khoản cần thêm</param>
+        /// <exception cref="BadRequestException">Lỗi thông tin bản ghi</exception>
+        /// <returns>Id bản ghi vừa thêm</returns>
+        /// Author: LeDucTiep (23/05/2023)
+        [Authorize]
+        [HttpPost]
+        public override async Task<IActionResult> PostAsync(NewsCreateDto entityCreateDto)
+        {
+            FirebaseUser user = HttpContext.GetFirebaseUser();
+
+            Account? account = await _baseService.CheckPermission(user);
+
+            if (account == null)
+            {
+                return BadRequest();
+            }
+
+            entityCreateDto.AccountId = account.AccountId;
+
+            if (entityCreateDto == null)
+            {
+                throw new BadRequestException();
+            }
+            NewsDto newsDto = await _baseService.PostAsync(entityCreateDto);
+
+            return StatusCode(201, newsDto);
         }
 
         private string BaseUrl

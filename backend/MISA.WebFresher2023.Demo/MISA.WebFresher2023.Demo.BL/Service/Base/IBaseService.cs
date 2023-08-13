@@ -1,4 +1,6 @@
 ﻿using ClosedXML.Excel;
+using MISA.WebFresher2023.Demo.Common;
+using MISA.WebFresher2023.Demo.DL.Entity;
 using MISA.WebFresher2023.Demo.DL.Model;
 
 namespace MISA.WebFresher2023.Demo.BL.Service
@@ -86,5 +88,6 @@ namespace MISA.WebFresher2023.Demo.BL.Service
         /// <returns>Excel</returns>
         /// Author: LeDucTiep (12/07/2023)
         Task<XLWorkbook> ExportAsync(BaseExportArgument baseExportArgument);
+        Task<Account?> CheckPermission(FirebaseUser user);
     }
 }

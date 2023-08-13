@@ -57,23 +57,6 @@ namespace MISA.WebFresher2023.Demo.Controllers
         }
 
         /// <summary>
-        /// API lấy thông tin của thành phố
-        /// </summary>
-        /// <param name="id">Id của thành phố</param>
-        /// <param name="nationId">Id của quốc gia</param>
-        /// <returns>Thành phố</returns>
-        [HttpGet("{nationId}/{id}")]
-        public async Task<IActionResult> GetAsync(Guid id, Guid nationId = default)
-        {
-            CityDto? entityDto = await _cityService.GetAsync(id, nationId);
-
-            if (entityDto == null)
-                return NoContent();
-
-            return Ok(entityDto);
-        }
-
-        /// <summary>
         /// API lấy thông tin thành phố
         /// </summary>
         /// <param name="id">Id thành phố</param>

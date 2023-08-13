@@ -313,3 +313,4 @@ D:\Tai_lieu_mon_hoc_HAUI\nam_3\ky_he\PhanMemMaNguonMo\btl\BaiTapNhom2\backend\MI
 D:\Tai_lieu_mon_hoc_HAUI\nam_3\ky_he\PhanMemMaNguonMo\btl\BaiTapNhom2\backend\MISA.WebFresher2023.Demo\MISA.WebFresher2023.Demo\obj\Debug\net6.0\MISA.WebFresher2023.Demo.pdb
 D:\Tai_lieu_mon_hoc_HAUI\nam_3\ky_he\PhanMemMaNguonMo\btl\BaiTapNhom2\backend\MISA.WebFresher2023.Demo\MISA.WebFresher2023.Demo\obj\Debug\net6.0\MISA.WebFresher2023.Demo.genruntimeconfig.cache
 D:\Tai_lieu_mon_hoc_HAUI\nam_3\ky_he\PhanMemMaNguonMo\btl\BaiTapNhom2\backend\MISA.WebFresher2023.Demo\MISA.WebFresher2023.Demo\obj\Debug\net6.0\ref\MISA.WebFresher2023.Demo.dll
+D:\Tai_lieu_mon_hoc_HAUI\nam_3\ky_he\PhanMemMaNguonMo\btl\BaiTapNhom2\backend\MISA.WebFresher2023.Demo\MISA.WebFresher2023.Demo\obj\Debug\net6.0\MISA.WebFresher2023.Demo.sourcelink.json

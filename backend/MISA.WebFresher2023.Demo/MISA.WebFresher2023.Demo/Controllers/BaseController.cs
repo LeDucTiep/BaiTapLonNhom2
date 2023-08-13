@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MISA.WebFresher2023.Demo.BL.Service;
+using MISA.WebFresher2023.Demo.Common;
 using MISA.WebFresher2023.Demo.Common.MyException;
+using MISA.WebFresher2023.Demo.DL.Entity;
 using MISA.WebFresher2023.Demo.DL.Model;
 
 namespace MISA.WebFresher2023.Demo.Controllers
@@ -20,6 +23,17 @@ namespace MISA.WebFresher2023.Demo.Controllers
         #endregion
 
         #region Method
+        [Authorize]
+        [Route("check-token")]
+        [HttpGet]
+        public async Task<IActionResult> CheckLoginAsync()
+        {
+            FirebaseUser user = HttpContext.GetFirebaseUser();
+
+            Account? account = await _baseService.CheckPermission(user);
+
+            return Ok(account);
+        }
 
         /// <summary>
         /// API thêm một bản ghi
@@ -29,7 +43,7 @@ namespace MISA.WebFresher2023.Demo.Controllers
         /// <returns>Id bản ghi vừa thêm</returns>
         /// Author: LeDucTiep (23/05/2023)
         [HttpPost]
-        public async Task<IActionResult> PostAsync(TEntityCreateDto entityCreateDto)
+        public virtual async Task<IActionResult> PostAsync(TEntityCreateDto entityCreateDto)
         {
             if (entityCreateDto == null)
             {

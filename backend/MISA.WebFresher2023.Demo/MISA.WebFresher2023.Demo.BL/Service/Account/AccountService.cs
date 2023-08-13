@@ -8,12 +8,14 @@ namespace MISA.WebFresher2023.Demo.BL.Service
 {
     public class AccountService : BaseService<Account, AccountDto, AccountCreateDto, AccountUpdateDto>, IAccountService
     {
-        IAccountRepository _accountRepository;
-        public AccountService(IAccountRepository accountRepository,
+        
+        public AccountService(
+            IAccountRepository accountRepository,
+           
             IMSDatabase msDatabase,
             IMapper mapper) : base(msDatabase, accountRepository, mapper)
         {
-            _accountRepository = accountRepository;
+           
         }
     }
 }

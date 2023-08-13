@@ -1,4 +1,5 @@
-﻿using MISA.WebFresher2023.Demo.DL.Model;
+﻿using MISA.WebFresher2023.Demo.DL.Entity;
+using MISA.WebFresher2023.Demo.DL.Model;
 using System.Data.Common;
 
 namespace MISA.WebFresher2023.Demo.DL.Repository
@@ -75,5 +76,7 @@ namespace MISA.WebFresher2023.Demo.DL.Repository
         /// <returns>Danh sách bản ghi cần xuất</returns>
         /// Author: LeDucTiep (08/05/2023)
         Task<IEnumerable<TEntityExport>> GetExportAsync<TEntityExport>();
+        Task<Account?> GetAccountByGuid28(string guid28);
+        Task InsertAccount(Account account);
     }
 }

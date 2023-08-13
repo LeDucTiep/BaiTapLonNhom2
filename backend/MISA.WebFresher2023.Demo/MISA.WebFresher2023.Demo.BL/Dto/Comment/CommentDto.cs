@@ -11,6 +11,8 @@ namespace MISA.WebFresher2023.Demo.BL.Dto
 
         public Guid? AccountId { get; set; }
 
+        public string? FullName { get; set; }
+
         public string? Content { get; set; }
     }
 }

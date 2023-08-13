@@ -8,6 +8,9 @@ namespace MISA.WebFresher2023.Demo.BL.Dto
         public Guid? NewsId { get; set; }
 
         public Guid? AccountId { get; set; }
+        public string? AccountName { get; set; }
+        public string? TimeAgo { get; set; }
+        public DateTime? CreatedDate { get; set; }
 
         public string? Title { get; set; }
 
@@ -31,5 +34,6 @@ namespace MISA.WebFresher2023.Demo.BL.Dto
         public string? ContactInfor { get; set; }
 
         public int? ViewCount { get; set; }
+        public int? NewsStatus { get; set; }
     }
 }

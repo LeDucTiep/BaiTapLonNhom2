@@ -1,8 +1,12 @@
 ﻿using Dapper;
 using MISA.WebFresher2023.Demo.Common.MyException;
 using MISA.WebFresher2023.Demo.Common.Resource;
+using MISA.WebFresher2023.Demo.DL.Entity;
 using MISA.WebFresher2023.Demo.DL.Model;
+using MISA.WebFresher2023.Demo.Enum;
+using System;
 using System.Data;
+using System.Net;
 
 namespace MISA.WebFresher2023.Demo.DL.Repository
 {
@@ -24,6 +28,33 @@ namespace MISA.WebFresher2023.Demo.DL.Repository
         #endregion
 
         #region Method
+        public async Task<Account?> GetAccountByGuid28(string guid28)
+        {
+            // Tạo connection
+            var connection = await _msDatabase.GetOpenConnectionAsync();
+
+            string sql = $"SELECT * FROM account a WHERE a.Guid28 = '{guid28}' limit 1;";
+
+            // Gọi procedure 
+            Account res = await connection.QueryFirstOrDefaultAsync<Account>(sql);
+
+            // trả về kết quả
+            return res;
+        }
+
+        public async Task InsertAccount(Account account)
+        {
+            // Tạo connection
+            var connection = await _msDatabase.GetOpenConnectionAsync();
+
+            string sql = $"INSERT INTO account (Guid28, AccountId, Email, Picture, FullName, Role)" +
+                $" VALUES ('{account.Guid28}', '{account.AccountId}', '{account.Email}', '{account.Picture}', '{account.FullName}', 0);";
+
+            // Gọi procedure 
+            await connection.QueryAsync<Account>(sql);
+        }
+
+
         /// <summary>
         /// Hàm xuất excel
         /// </summary>
@@ -238,7 +269,7 @@ namespace MISA.WebFresher2023.Demo.DL.Repository
                 // Giá trị của tham số 
                 object? value = property.GetValue(entity);
 
-                if(property.PropertyType == typeof(Guid) || property.PropertyType == typeof(Guid?))
+                if (property.PropertyType == typeof(Guid) || property.PropertyType == typeof(Guid?))
                 {
                     if (value != null && value.Equals(Guid.Empty))
                     {
@@ -370,7 +401,7 @@ namespace MISA.WebFresher2023.Demo.DL.Repository
                     commandType: CommandType.StoredProcedure
                 );
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new InternalException();
             }

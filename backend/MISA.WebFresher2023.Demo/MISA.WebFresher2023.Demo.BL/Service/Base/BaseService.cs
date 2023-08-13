@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using ClosedXML.Excel;
 using DocumentFormat.OpenXml.Office2010.Excel;
+using MISA.WebFresher2023.Demo.Common;
 using MISA.WebFresher2023.Demo.Common.Attribute;
 using MISA.WebFresher2023.Demo.Common.Constant;
 using MISA.WebFresher2023.Demo.Common.MyException;
 using MISA.WebFresher2023.Demo.Common.Resource;
 using MISA.WebFresher2023.Demo.DL;
+using MISA.WebFresher2023.Demo.DL.Entity;
 using MISA.WebFresher2023.Demo.DL.Model;
 using MISA.WebFresher2023.Demo.DL.Repository;
 using MISA.WebFresher2023.Demo.Enum;
@@ -45,6 +47,27 @@ namespace MISA.WebFresher2023.Demo.BL.Service
         #endregion
 
         #region Method
+
+        public async Task<Account?> CheckPermission(FirebaseUser user)
+        {
+            Account account = new();
+            account.Guid28 = user.Id;
+            account.Email = user.Email;
+            account.FullName = user.Username;
+            account.Picture = user.Picture;
+
+            var u = await _baseRepository.GetAccountByGuid28(user.Id);
+
+            if(u == null)
+            {
+                account.AccountId = Guid.NewGuid(); 
+                await _baseRepository.InsertAccount(account);
+            }
+
+            u = await _baseRepository.GetAccountByGuid28(user.Id);
+
+            return u;
+        }
 
         /// <summary>
         /// Hàm xuất khẩu dữ liệu thành file excel
