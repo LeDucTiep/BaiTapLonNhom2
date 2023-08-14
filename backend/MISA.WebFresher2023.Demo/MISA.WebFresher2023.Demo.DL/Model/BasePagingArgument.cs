@@ -35,6 +35,7 @@ namespace MISA.WebFresher2023.Demo.DL.Model
 
         public int? Category { get; set; }
         public int? NewsType { get; set; }
+        public int? NewsStatus { get; set; }
         public Guid? ProvinceId { get; set; }
         public Guid? NewsId { get; set; }
     }

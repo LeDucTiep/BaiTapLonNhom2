@@ -41,6 +41,7 @@ namespace MISA.WebFresher2023.Demo.DL.Repository
             parameters.Add("category", basePagingArgument.Category == null ? null : basePagingArgument.Category);
             parameters.Add("newsType", basePagingArgument.NewsType == null ? null : basePagingArgument.NewsType);
             parameters.Add("provinceId", basePagingArgument.ProvinceId == null ? null: basePagingArgument.ProvinceId);
+            parameters.Add("newsStatus", basePagingArgument.NewsStatus == null ? null: basePagingArgument.NewsStatus);
             parameters.Add("totalRecord", dbType: DbType.Int32, direction: ParameterDirection.Output);
 
             try

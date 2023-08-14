@@ -103,7 +103,14 @@
           <tr
             v-for="news in postList"
             :key="news.NewsId"
-            :style="{ color: !news.IsRecorded ? '#14A200' : 'black' }"
+            :style="{
+              color:
+                news.NewsStatus == 0
+                  ? 'black'
+                  : news.NewsStatus == 1
+                  ? '#14A200'
+                  : 'gray',
+            }"
           >
             <td>
               <MSCheckBox
@@ -245,7 +252,7 @@
     
 <script>
 export default {
-  name: "AdminPostListList",
+  name: "AdminPostList",
   data() {
     return {
       receiptFormKey: 0,
@@ -303,6 +310,11 @@ export default {
       pageNumberSelected: 1,
 
       ReceiptOnMenu: null,
+      header: {
+        headers: {
+          Authorization: "Bearer " + this.$msCookies.get("accessToken"),
+        },
+      },
     };
   },
   watch: {
@@ -336,22 +348,22 @@ export default {
       return true;
     },
   },
-  created() {
+  async created() {
+    await this.checkPermission();
     this.loadPostList();
-    this.$msEmitter.on("resetAddReceiptForm", this.resetAddReceiptForm);
-    this.$msEmitter.on("afterPostReceipt", this.afterPostReceipt);
-    this.$msEmitter.on("afterPutReceipt", this.afterPutReceipt);
-    this.$msEmitter.on("deleteReceipt", this.deleteReceipt);
-    this.$msEmitter.on("deleteListReceipts", this.deleteListReceipts);
   },
-  beforeUnmount() {
-    this.$msEmitter.off("resetAddReceiptForm");
-    this.$msEmitter.off("afterPostReceipt");
-    this.$msEmitter.off("afterPutReceipt");
-    this.$msEmitter.off("deleteReceipt");
-    this.$msEmitter.off("deleteListReceipts");
-  },
+  beforeUnmount() {},
   methods: {
+    async checkPermission() {
+      const response = await this.$msAxios(
+        "get",
+        this.$msApi.AccountApi.CheckToken,
+        this.header
+      );
+      if (response.data.Role != 1) {
+        this.$router.push("/");
+      }
+    },
     /**
      * Hàm thực hiện sau khi sửa phiếu thu
      * @param {Object} news Phiếu thu

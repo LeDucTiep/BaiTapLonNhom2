@@ -9,6 +9,7 @@ namespace MISA.WebFresher2023.Demo.BL.Dto
 
         public Guid? AccountId { get; set; }
         public string? AccountName { get; set; }
+        public string? AccountPicture { get; set; }
         public string? TimeAgo { get; set; }
         public DateTime? CreatedDate { get; set; }
 

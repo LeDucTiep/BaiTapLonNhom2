@@ -10,18 +10,21 @@ namespace MISA.WebFresher2023.Demo.BL.Service
 {
     public class NewsService : BaseService<News, NewsDto, NewsCreateDto, NewsUpdateDto>, INewsService
     {
-        INewsRepository _newsRepository; ICityRepository _cityRepository;
+        ICityRepository _cityRepository;
         IDistrictRepository _districtRepository;
         ICommuneRepository _communeRepository;
+        IAccountRepository _accountRepository;
         public NewsService(INewsRepository newsRepository,
             IMSDatabase msDatabase, ICityRepository cityRepository,
             IDistrictRepository districtRepository,
             ICommuneRepository communeRepository,
+            IAccountRepository accountRepository,
             IMapper mapper) : base(msDatabase, newsRepository, mapper)
         {
-            _newsRepository = newsRepository; _cityRepository = cityRepository;
+            _cityRepository = cityRepository;
             _districtRepository = districtRepository;
             _communeRepository = communeRepository;
+            _accountRepository = accountRepository;
         }
 
         /// <summary>
@@ -46,6 +49,14 @@ namespace MISA.WebFresher2023.Demo.BL.Service
                 if(news == null) { return null; }
                 // Trả về
                 var newsDto = _mapper.Map<NewsDto>(news);
+
+                if (newsDto.AccountId != null)
+                {
+                    var acc = await _accountRepository.GetAsync((Guid)newsDto.AccountId);
+                    newsDto.AccountName = acc?.FullName;
+                    newsDto.AccountPicture = acc?.Picture;
+                }
+
 
                 if (newsDto.CityId != null)
                 {

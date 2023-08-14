@@ -12,8 +12,23 @@
       </div>
     </div>
     <div class="info">
-      <div class="title" @click="postDetailOnClick()">
-        {{ aPost.Title }}
+      <div
+        class="title"
+        @click="postDetailOnClick()"
+        @mousemove="
+          (event) => {
+            if (aPost.Title.length > 42) {
+              $msEmitter.emit('showTooltip', event, aPost.Title);
+            }
+          }
+        "
+        @mouseout="$msEmitter.emit('hideTooltip')"
+      >
+        {{
+          aPost.Title.length > 42
+            ? aPost.Title.substring(0, 40) + "..."
+            : aPost.Title
+        }}
       </div>
 
       <div class="position">
@@ -73,7 +88,6 @@ export default {
 
   methods: {
     postDetailOnClick() {
-      console.log("ahihi", this.news.NewsId);
       this.$router.push("/TPostDetail/" + this.news.NewsId);
     },
   },

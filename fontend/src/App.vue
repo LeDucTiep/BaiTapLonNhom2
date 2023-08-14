@@ -56,45 +56,88 @@
           <div v-show="isShowUserPopup" class="function-container">
             <div v-if="isLoggedIn() == true" class="logged-in-functions">
               <div class="func-item" @click="showProfileOnClick()">
-                <div class="icon-container">
-                  <div class="icon-refresh-green"></div>
-                </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="1.25em"
+                  viewBox="0 0 576 512"
+                >
+                  <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                  <path
+                    d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"
+                  />
+                </svg>
                 <div class="func-name">Trang cá nhân</div>
               </div>
 
               <div class="func-item" @click="editProfileOnClick()">
-                <div class="icon-container">
-                  <div class="icon-refresh-green"></div>
-                </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="1.25em"
+                  viewBox="0 0 512 512"
+                >
+                  <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                  <path
+                    d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z"
+                  />
+                </svg>
                 <div class="func-name">Cập nhật thông tin</div>
               </div>
 
               <div class="func-item">
-                <div class="icon-container">
-                  <div class="icon-refresh-green"></div>
-                </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="1.25em"
+                  viewBox="0 0 512 512"
+                >
+                  <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                  <path
+                    d="M336 352c97.2 0 176-78.8 176-176S433.2 0 336 0S160 78.8 160 176c0 18.7 2.9 36.8 8.3 53.7L7 391c-4.5 4.5-7 10.6-7 17v80c0 13.3 10.7 24 24 24h80c13.3 0 24-10.7 24-24V448h40c13.3 0 24-10.7 24-24V384h40c6.4 0 12.5-2.5 17-7l33.3-33.3c16.9 5.4 35 8.3 53.7 8.3zM376 96a40 40 0 1 1 0 80 40 40 0 1 1 0-80z"
+                  />
+                </svg>
                 <div class="func-name">Đổi mật khẩu</div>
               </div>
               <hr />
               <div class="func-item" @click="signOutOnClick()">
-                <div class="icon-container">
-                  <div class="icon-refresh-green"></div>
-                </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="1.25em"
+                  viewBox="0 0 512 512"
+                  style="fill: #d24646"
+                >
+                  <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                  <path
+                    d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 192 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128zM160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 32C43 32 0 75 0 128L0 384c0 53 43 96 96 96l64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l64 0z"
+                  />
+                </svg>
                 <div class="func-name">Đăng xuất</div>
               </div>
             </div>
 
             <div v-else class="logged-out-functions">
               <div class="func-item" @click="signInOnClick()">
-                <div class="icon-container">
-                  <div class="icon-refresh-green"></div>
-                </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="1.25em"
+                  viewBox="0 0 512 512"
+                >
+                  <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                  <path
+                    d="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z"
+                  />
+                </svg>
                 <div class="func-name">Đăng nhập</div>
               </div>
               <div class="func-item" @click="signUpOnClick()">
-                <div class="icon-container">
-                  <div class="icon-refresh-green"></div>
-                </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="1.25em"
+                  viewBox="0 0 512 512"
+                >
+                  <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                  <path
+                    d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z"
+                  />
+                </svg>
                 <div class="func-name">Đăng ký</div>
               </div>
             </div>
@@ -108,9 +151,15 @@
           <div class="nav__row">
             <div class="nav__title">Bộ lọc</div>
             <div class="delete-filter flex" @click="resetFilter()">
-              <div class="icon-container">
-                <div class="icon-x-red"></div>
-              </div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="1.25em"
+                viewBox="0 0 448 512"
+              >
+                <path
+                  d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
+                />
+              </svg>
               Xóa bộ lọc
             </div>
           </div>
@@ -204,6 +253,9 @@ export default {
           return 2;
 
         case "/TSignIn":
+          return 3;
+
+        case "/AdminPostList":
           return 3;
 
         case "/TSignUp":
@@ -453,6 +505,10 @@ export default {
             align-items: center;
             padding: 4px 0px;
             justify-content: space-between;
+            svg {
+              fill: red;
+              margin-right: 4px;
+            }
             .delete-filter {
               align-items: center;
               cursor: pointer;
