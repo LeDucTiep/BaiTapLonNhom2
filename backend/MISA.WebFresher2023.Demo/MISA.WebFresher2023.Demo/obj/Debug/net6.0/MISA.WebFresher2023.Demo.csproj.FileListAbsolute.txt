@@ -299,13 +299,14 @@ D:\Tai_lieu_mon_hoc_HAUI\nam_3\ky_he\PhanMemMaNguonMo\btl\BaiTapNhom2\backend\MI
 D:\Tai_lieu_mon_hoc_HAUI\nam_3\ky_he\PhanMemMaNguonMo\btl\BaiTapNhom2\backend\MISA.WebFresher2023.Demo\MISA.WebFresher2023.Demo\obj\Debug\net6.0\MISA.WebFresher2023.Demo.csproj.CoreCompileInputs.cache
 D:\Tai_lieu_mon_hoc_HAUI\nam_3\ky_he\PhanMemMaNguonMo\btl\BaiTapNhom2\backend\MISA.WebFresher2023.Demo\MISA.WebFresher2023.Demo\obj\Debug\net6.0\MISA.WebFresher2023.Demo.MvcApplicationPartsAssemblyInfo.cs
 D:\Tai_lieu_mon_hoc_HAUI\nam_3\ky_he\PhanMemMaNguonMo\btl\BaiTapNhom2\backend\MISA.WebFresher2023.Demo\MISA.WebFresher2023.Demo\obj\Debug\net6.0\MISA.WebFresher2023.Demo.MvcApplicationPartsAssemblyInfo.cache
+D:\Tai_lieu_mon_hoc_HAUI\nam_3\ky_he\PhanMemMaNguonMo\btl\BaiTapNhom2\backend\MISA.WebFresher2023.Demo\MISA.WebFresher2023.Demo\obj\Debug\net6.0\MISA.WebFresher2023.Demo.sourcelink.json
+D:\Tai_lieu_mon_hoc_HAUI\nam_3\ky_he\PhanMemMaNguonMo\btl\BaiTapNhom2\backend\MISA.WebFresher2023.Demo\MISA.WebFresher2023.Demo\obj\Debug\net6.0\staticwebassets.build.json
+D:\Tai_lieu_mon_hoc_HAUI\nam_3\ky_he\PhanMemMaNguonMo\btl\BaiTapNhom2\backend\MISA.WebFresher2023.Demo\MISA.WebFresher2023.Demo\obj\Debug\net6.0\staticwebassets.development.json
 D:\Tai_lieu_mon_hoc_HAUI\nam_3\ky_he\PhanMemMaNguonMo\btl\BaiTapNhom2\backend\MISA.WebFresher2023.Demo\MISA.WebFresher2023.Demo\obj\Debug\net6.0\staticwebassets\msbuild.MISA.WebFresher2023.Demo.Microsoft.AspNetCore.StaticWebAssets.props
 D:\Tai_lieu_mon_hoc_HAUI\nam_3\ky_he\PhanMemMaNguonMo\btl\BaiTapNhom2\backend\MISA.WebFresher2023.Demo\MISA.WebFresher2023.Demo\obj\Debug\net6.0\staticwebassets\msbuild.build.MISA.WebFresher2023.Demo.props
 D:\Tai_lieu_mon_hoc_HAUI\nam_3\ky_he\PhanMemMaNguonMo\btl\BaiTapNhom2\backend\MISA.WebFresher2023.Demo\MISA.WebFresher2023.Demo\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.MISA.WebFresher2023.Demo.props
 D:\Tai_lieu_mon_hoc_HAUI\nam_3\ky_he\PhanMemMaNguonMo\btl\BaiTapNhom2\backend\MISA.WebFresher2023.Demo\MISA.WebFresher2023.Demo\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.MISA.WebFresher2023.Demo.props
 D:\Tai_lieu_mon_hoc_HAUI\nam_3\ky_he\PhanMemMaNguonMo\btl\BaiTapNhom2\backend\MISA.WebFresher2023.Demo\MISA.WebFresher2023.Demo\obj\Debug\net6.0\staticwebassets.pack.json
-D:\Tai_lieu_mon_hoc_HAUI\nam_3\ky_he\PhanMemMaNguonMo\btl\BaiTapNhom2\backend\MISA.WebFresher2023.Demo\MISA.WebFresher2023.Demo\obj\Debug\net6.0\staticwebassets.build.json
-D:\Tai_lieu_mon_hoc_HAUI\nam_3\ky_he\PhanMemMaNguonMo\btl\BaiTapNhom2\backend\MISA.WebFresher2023.Demo\MISA.WebFresher2023.Demo\obj\Debug\net6.0\staticwebassets.development.json
 D:\Tai_lieu_mon_hoc_HAUI\nam_3\ky_he\PhanMemMaNguonMo\btl\BaiTapNhom2\backend\MISA.WebFresher2023.Demo\MISA.WebFresher2023.Demo\obj\Debug\net6.0\scopedcss\bundle\MISA.WebFresher2023.Demo.styles.css
 D:\Tai_lieu_mon_hoc_HAUI\nam_3\ky_he\PhanMemMaNguonMo\btl\BaiTapNhom2\backend\MISA.WebFresher2023.Demo\MISA.WebFresher2023.Demo\obj\Debug\net6.0\MISA.WebFresher2023.Demo.csproj.CopyComplete
 D:\Tai_lieu_mon_hoc_HAUI\nam_3\ky_he\PhanMemMaNguonMo\btl\BaiTapNhom2\backend\MISA.WebFresher2023.Demo\MISA.WebFresher2023.Demo\obj\Debug\net6.0\MISA.WebFresher2023.Demo.dll
@@ -313,4 +314,3 @@ D:\Tai_lieu_mon_hoc_HAUI\nam_3\ky_he\PhanMemMaNguonMo\btl\BaiTapNhom2\backend\MI
 D:\Tai_lieu_mon_hoc_HAUI\nam_3\ky_he\PhanMemMaNguonMo\btl\BaiTapNhom2\backend\MISA.WebFresher2023.Demo\MISA.WebFresher2023.Demo\obj\Debug\net6.0\MISA.WebFresher2023.Demo.pdb
 D:\Tai_lieu_mon_hoc_HAUI\nam_3\ky_he\PhanMemMaNguonMo\btl\BaiTapNhom2\backend\MISA.WebFresher2023.Demo\MISA.WebFresher2023.Demo\obj\Debug\net6.0\MISA.WebFresher2023.Demo.genruntimeconfig.cache
 D:\Tai_lieu_mon_hoc_HAUI\nam_3\ky_he\PhanMemMaNguonMo\btl\BaiTapNhom2\backend\MISA.WebFresher2023.Demo\MISA.WebFresher2023.Demo\obj\Debug\net6.0\ref\MISA.WebFresher2023.Demo.dll
-D:\Tai_lieu_mon_hoc_HAUI\nam_3\ky_he\PhanMemMaNguonMo\btl\BaiTapNhom2\backend\MISA.WebFresher2023.Demo\MISA.WebFresher2023.Demo\obj\Debug\net6.0\MISA.WebFresher2023.Demo.sourcelink.json

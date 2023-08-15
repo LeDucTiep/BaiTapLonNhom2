@@ -1,11 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MISA.WebFresher2023.Demo.BL.Service;
+﻿using MISA.WebFresher2023.Demo.BL.Service;
 using MISA.WebFresher2023.Demo.DL;
 using MISA.WebFresher2023.Demo.DL.Repository;
 using MISA.WebFresher2023.Demo.Middleware;
 using MISA.WebFresher2023.Demo.Common;
 using FirebaseAdmin;
-using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authentication;
 
