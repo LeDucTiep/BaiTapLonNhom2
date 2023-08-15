@@ -72,7 +72,11 @@ export default {
       isReadonly: !this.readonly,
     };
   },
-  watch: {},
+  watch: {
+    readonly() {
+      this.isReadonly = !this.readonly;
+    },
+  },
 
   computed: {},
 

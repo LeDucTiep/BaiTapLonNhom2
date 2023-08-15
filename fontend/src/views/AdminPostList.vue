@@ -1,4 +1,66 @@
 <template>
+  <div v-show="isShowSetting" class="setting">
+    <div class="nav">
+      <div class="nav__head">
+        <div class="nav__row">
+          <div class="nav__title">Bộ lọc</div>
+          <div class="delete-filter flex" @click="resetFilter()">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="1.25em"
+              viewBox="0 0 448 512"
+            >
+              <path
+                d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
+              />
+            </svg>
+            Xóa bộ lọc
+          </div>
+        </div>
+        <hr />
+        <div class="nav__row">
+          <MSInputRadio
+            title="Loại tin"
+            direction="column"
+            :items="[
+              { id: 0, value: 'Tin cần tìm' },
+              { id: 1, value: 'Tin nhặt được' },
+            ]"
+            v-model:id="filter.NewsType"
+          ></MSInputRadio>
+        </div>
+        <div class="nav__row">
+          <MSInputRadio
+            title="Danh mục"
+            direction="column"
+            :items="[
+              { id: 0, value: 'Ví/Giấy tờ' },
+              { id: 1, value: 'Thú cưng(Chó/Mèo)' },
+              { id: 2, value: 'Tìm người' },
+              { id: 3, value: 'Điện thoại/Tablet/Laptop' },
+              { id: 4, value: 'Chìa khóa' },
+              { id: 5, value: 'Xe máy/Ô tô' },
+              { id: 6, value: 'Đồ vật khác' },
+            ]"
+            v-model:id="filter.Category"
+          ></MSInputRadio>
+        </div>
+        <div class="nav__row">
+          <MSInputCombobox
+            title="Chọn khu vục"
+            propText="Name"
+            propValue="CityId"
+            v-model:id="filter.ProvinceId"
+            :listItems="provinces"
+          >
+          </MSInputCombobox>
+        </div>
+        <div class="nav__row">
+          <button class="main-button" @click="loadPostList()">Tìm kiếm</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="head">
     <div class="left">
       <p>
@@ -30,7 +92,7 @@
     </div>
     <div class="right">
       <MSInputSearch
-        v-model:value="inputSearchValue"
+        v-model:value="filter.SearchTerm"
         :placeholder="this.$t('Placeholder.InputSearch')"
         @inputSearchOnSubmit="loadPostList()"
       ></MSInputSearch>
@@ -52,16 +114,17 @@
             $msEmitter.emit('showTooltip', event, this.$t('Button.Setting'))
         "
         @mouseout="$msEmitter.emit('hideTooltip')"
-        @click="notSupported()"
+        @click="toggleSetting()"
       >
         <div class="icon-setting-gray"></div>
       </div>
 
-      <button class="extra-button" @click="notSupported()">
+      <button class="extra-button" @click="toggleSetting()">
         {{ $t("Button.Utilities") }}
       </button>
     </div>
   </div>
+
   <div class="body flex flex-column">
     <div class="sticky-table">
       <table class="table">
@@ -255,8 +318,14 @@ export default {
   name: "AdminPostList",
   data() {
     return {
+      isShowSetting: false,
+      filter: {
+        Category: null,
+        NewsType: null,
+        ProvinceId: "",
+        SearchTerm: "",
+      },
       receiptFormKey: 0,
-      inputSearchValue: "",
       tableHeaders: [
         {
           text: "Trạng thái",
@@ -315,6 +384,7 @@ export default {
           Authorization: "Bearer " + this.$msCookies.get("accessToken"),
         },
       },
+      provinces: [{ CityId: "", Name: "Toàn quốc" }],
     };
   },
   watch: {
@@ -351,9 +421,31 @@ export default {
   async created() {
     await this.checkPermission();
     this.loadPostList();
+    const response = await this.$msAxios("get", this.$msApi.CityApi.Paging, {
+      params: {
+        // Kích thước của trang
+        pageSize: 100,
+        // vị trí trang
+        pageNumber: 1,
+      },
+    });
+    for (const key in response.data.Data) {
+      const element = response.data.Data[key];
+      this.provinces.push(element);
+    }
   },
   beforeUnmount() {},
   methods: {
+    resetFilter() {
+      this.filter = {
+        Category: null,
+        NewsType: null,
+        ProvinceId: 0,
+      };
+    },
+    toggleSetting() {
+      this.isShowSetting = !this.isShowSetting;
+    },
     async checkPermission() {
       const response = await this.$msAxios(
         "get",
@@ -592,7 +684,10 @@ export default {
           // vị trí trang
           pageNumber: this.pageNumberSelected,
           // Từ khóa tìm kiếm
-          searchTerm: this.inputSearchValue,
+          SearchTerm: this.filter.SearchTerm,
+          Category: this.filter.Category,
+          NewsType: this.filter.NewsType,
+          ProvinceId: this.filter.ProvinceId,
         },
       });
 
@@ -775,7 +870,7 @@ export default {
   margin-top: 30px;
   display: flex;
   justify-content: space-between;
-
+  width: 100vw;
   .left {
     display: flex;
     gap: 24px;
@@ -1038,4 +1133,17 @@ button[disabled] {
   cursor: default !important;
 }
 </style>
-    
+  <style>
+.container .body:has(.nav) .content {
+  width: 100vw !important;
+}
+</style>
+<style scoped>
+.setting {
+  position: absolute;
+  background: #fff !important;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  z-index: 99;
+}
+</style>

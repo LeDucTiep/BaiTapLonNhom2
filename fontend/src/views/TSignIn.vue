@@ -32,7 +32,6 @@
           title="Mật khẩu"
           isRequired
           v-model:value="account.pass"
-          :onDoneTyping="checkStrongPass"
         ></MSInputText>
         <div class="login">
           <button class="main-button" @click="login()">Đăng nhập</button>
@@ -85,13 +84,13 @@ export default {
       this.isValidating = true;
 
       const notEmpty = this.account.email && this.account.pass;
-      const strongPass = !this.checkStrongPass().isErrored;
-      const isEmail = this.checkEmail().isErrored;
+      const isEmail = !this.checkEmail().isErrored;
 
-      const isValid = notEmpty && strongPass && isEmail;
+      const isValid = notEmpty && isEmail;
       if (isValid) {
         this.isValidating = false;
       }
+      console.log(isValid);
       return isValid;
     },
     checkEmail() {

@@ -11,6 +11,7 @@
       <MSInputSearch
         v-model:value="filter.SearchTerm"
         placeholder="Nhập tên trong giấy tờ, tên đồ vật, tên vật nuôi ..."
+        @inputSearchOnSubmit="searchOnClick()"
       ></MSInputSearch>
 
       <div class="icon-list">
@@ -83,7 +84,7 @@
                 <div class="func-name">Cập nhật thông tin</div>
               </div>
 
-              <div class="func-item">
+              <div class="func-item" @click="resetPasswordOnClick()">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="1.25em"
@@ -218,7 +219,12 @@
 </template>
 
 <script>
-import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import {
+  getAuth,
+  onAuthStateChanged,
+  signOut,
+  sendPasswordResetEmail,
+} from "firebase/auth";
 
 export default {
   name: "App",
@@ -296,6 +302,23 @@ export default {
   beforeUnmount() {},
 
   methods: {
+    resetPasswordOnClick() {
+      if (!this.auth?.currentUser?.email) return;
+      sendPasswordResetEmail(this.auth, this.auth?.currentUser?.email)
+        .then(() => {
+          this.$msEmitter.emit("addNotice", {
+            type: this.$msEnum.NoticeType.Success,
+            message: "Hãy kiểm tra gmail của bạn",
+          });
+        })
+        .catch(() => {
+          this.$msEmitter.emit("addNotice", {
+            type: this.$msEnum.NoticeType.Error,
+            message: "Gửi gmail thất bại",
+          });
+        });
+      this.isShowUserPopup = false;
+    },
     userPopupClickOutSide() {
       this.isShowUserPopup = false;
     },

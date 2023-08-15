@@ -4,6 +4,8 @@
       <div class="title">Đăng tin mới</div>
       <div class="post-form">
         <MSInputText
+          :isValidating="isValidating"
+          :errorMessage="titleMessage"
           title="Tiêu đề"
           :isRequired="true"
           :rows="2"
@@ -35,6 +37,8 @@
 
           <div class="w-1/2">
             <MSInputCombobox
+              :isValidating="isValidating"
+              :errorMessage="cityMessage"
               :isRequired="true"
               title="Chọn khu vục"
               placeholder="Tỉnh/Thành phố"
@@ -103,6 +107,8 @@
         </div>
 
         <MSInputText
+          :isValidating="isValidating"
+          :errorMessage="contentMessage"
           v-model:value="news.Content"
           title="Nội dung"
           :isRequired="true"
@@ -114,6 +120,8 @@
         ></MSInputText>
 
         <MSInputText
+          :isValidating="isValidating"
+          :errorMessage="contactInforMessage"
           v-model:value="news.ContactInfor"
           title="Thông tin liên lạc"
           :isRequired="true"
@@ -142,6 +150,11 @@ export default {
   props: [],
   data() {
     return {
+      isValidating: false,
+      titleMessage: "Tiêu đề không được để trống",
+      cityMessage: "Thành phố không được để trống",
+      contentMessage: "Nội dung không được để trống",
+      contactInforMessage: "Thông tin liên lạc không được để trống",
       header: {
         headers: {
           Authorization: "Bearer ",
@@ -252,7 +265,20 @@ export default {
       }
     },
     validate() {
-      return true;
+      console.log(this.news);
+      this.isValidating = true;
+
+      const notEmpty =
+        this.news.Title &&
+        this.news.CityId &&
+        this.news.Content &&
+        this.news.ContactInfor;
+
+      const isValid = notEmpty;
+      if (isValid) {
+        this.isValidating = false;
+      }
+      return isValid;
     },
     cancelUploadImg() {
       this.imagePreviewUrl = "";
@@ -348,7 +374,7 @@ export default {
   align-items: center;
 }
 .new-post {
-  margin-top: 134px;
+  margin-top: 154px;
   width: 777px;
   padding: 24px;
   .title {
@@ -470,7 +496,11 @@ textarea {
   margin-top: 12px;
   &:first-child {
     margin-top: 0px;
-    margin-bottom: 12px;
+    margin-bottom: 23px;
+  }
+  &:nth-child(2) {
+    margin-top: 0px;
+    margin-bottom: 23px;
   }
 }
 </style>
