@@ -12,7 +12,7 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 // Lấy data từ file 
 builder.ReadConfig();
 
-// Tạo config instance
+// Tạo config instanced
 
 AppConfig appConfig = builder.Configuration.GetConfig();
 

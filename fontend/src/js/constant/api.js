@@ -1,6 +1,5 @@
 // const BaseApi = "https://cukcuk.manhnv.net/api/v1";
-const BaseApi = "https://localhost:44356/api/v1";
-const BaseExportApi = "https://localhost:7191/api/v1";
+const BaseApi = "https://localhost:7035/api/v1";
 
 const MSApi = {
   AccountApi: {
@@ -32,7 +31,6 @@ const MSApi = {
     CheckCodeDuplicated: `${BaseApi}/Comments/is-code-duplicated`,
     CheckEditCodeDuplicated: `${BaseApi}/Comments/is-edit-code-duplicated`,
     Paging: `${BaseApi}/Comments/paging`,
-    ExportExcel: `${BaseExportApi}/Comments/exporting`,
     GetAll: `${BaseApi}/Comments`,
     PagingCombobox: `${BaseApi}/Comments/paging`,
   },

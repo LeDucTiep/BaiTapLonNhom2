@@ -507,6 +507,7 @@ export default {
       padding: 24px;
       width: 300px;
       height: calc(100vh - 50px);
+      margin-left: 35px;
 
       .nav__head {
         user-select: none;

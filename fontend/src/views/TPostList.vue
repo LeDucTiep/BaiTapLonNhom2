@@ -1,5 +1,6 @@
 <template>
   <div class="posts" @scroll="onScroll">
+    <div class="bl"></div>
     <TPost v-for="news in newsList" :key="news" :news="news"></TPost>
   </div>
 </template>
@@ -66,6 +67,12 @@ export default {
   flex-wrap: wrap;
   height: calc(100vh - 50px);
   overflow-x: auto;
+
+  justify-content: center;
+  .bl {
+    width: fit-content;
+  }
+
   &::-webkit-scrollbar {
     width: 5px;
     height: 5px;

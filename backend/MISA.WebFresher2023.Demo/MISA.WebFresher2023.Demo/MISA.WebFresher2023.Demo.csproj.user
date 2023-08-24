@@ -4,9 +4,9 @@
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup>
-    <ActiveDebugProfile>IIS Express</ActiveDebugProfile>
+    <ActiveDebugProfile>MISA.WebFresher2023.Demo</ActiveDebugProfile>
     <Controller_SelectedScaffolderID>ApiControllerWithActionsScaffolder</Controller_SelectedScaffolderID>
     <Controller_SelectedScaffolderCategoryPath>root/Common/Api</Controller_SelectedScaffolderCategoryPath>
-    <NameOfLastUsedPublishProfile>IISProfile</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>D:\Tai_lieu_mon_hoc_HAUI\nam_3\ky_he\PhanMemMaNguonMo\btl\BaiTapNhom2\backend\MISA.WebFresher2023.Demo\MISA.WebFresher2023.Demo\Properties\PublishProfiles\FolderProfile1.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>
